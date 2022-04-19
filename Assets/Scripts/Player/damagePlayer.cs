@@ -16,12 +16,14 @@ public class damagePlayer : MonoBehaviour
     public bool isMortal = true;
 
     public healthBar hpBar;
+    private dashMove dashScript;
 
     // Start is called before the first frame update
     void Start()
     {
         maxHp = hp;
         rb = this.GetComponent<Rigidbody2D>();
+        dashScript = FindObjectOfType<dashMove>();
     }
 
     // Update is called once per frame
@@ -50,6 +52,7 @@ public class damagePlayer : MonoBehaviour
             hp--;
             isMortal = false;
             Invoke("becomeMortal", 1f);
+            dashScript.enemyCollided();
 
             if (hp == 0)
             {

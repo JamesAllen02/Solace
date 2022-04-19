@@ -65,6 +65,11 @@ public class dashMove : MonoBehaviour
                 rb.velocity = Vector2.right * dashSpeed * playerLooking;
             }
         }
-        
     }
+
+    public void enemyCollided()
+    {
+        dashTime = 0;
+    }
+
 }
