@@ -10,6 +10,8 @@ public class energyController : MonoBehaviour
     public TextMeshProUGUI text;
     private float maxEnergy;
 
+    public healthBar energyBar;
+
     void Start()
     {
         maxEnergy = energy;
@@ -18,6 +20,7 @@ public class energyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        energyBar.barSlider.value = energy;
 
         text.text = "Energy: " + energy + "/10";
     }

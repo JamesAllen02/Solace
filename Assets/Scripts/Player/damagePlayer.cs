@@ -15,6 +15,8 @@ public class damagePlayer : MonoBehaviour
     public bool isDead = false;
     public bool isMortal = true;
 
+    public healthBar hpBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class damagePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hpBar.barSlider.value = hp;
 
         text.text = "HP: " + hp + "/" + maxHp;
 
