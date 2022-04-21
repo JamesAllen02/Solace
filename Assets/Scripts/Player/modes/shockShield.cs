@@ -13,6 +13,7 @@ public class shockShield : MonoBehaviour
 
     private CircleCollider2D cc;
     private SpriteRenderer sr;
+    public bool shieldOn = false;
 
     
 
@@ -21,12 +22,22 @@ public class shockShield : MonoBehaviour
         cc = shieldCircle.GetComponent<CircleCollider2D>();
         sr = shieldCircle.GetComponent<SpriteRenderer>();
 
+        InvokeRepeating("reduceEnergy", 2, 2);
+
     }
 
     void Update()
     {
 
-        if(FindObjectOfType<energyController>().energy > 0)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == false)
+        {
+            shieldOn = true;
+        } else if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == true)
+        {
+            shieldOn = false;
+        }
+
+        if(FindObjectOfType<energyController>().energy > 0 && shieldOn == true)
         {
             cc.enabled = true;
             sr.enabled = true;
@@ -34,6 +45,7 @@ public class shockShield : MonoBehaviour
         {
             cc.enabled = false;
             sr.enabled = false;
+            shieldOn = false;
         }
 
         // Checks for nearby enemies
@@ -49,8 +61,9 @@ public class shockShield : MonoBehaviour
         }
 
         // hits nearby enemies
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && FindObjectOfType<energyController>().energy >= 3)
         {
+            FindObjectOfType<energyController>().reduceEnergy(3);
             foreach (Collider2D fiend in enemyColliders)
             {
                 if (fiend.GetComponent<EnemyDamageTaken>() != null)
@@ -74,4 +87,13 @@ public class shockShield : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, circleDistance);
     }
+
+    void reduceEnergy()
+    {
+        if(shieldOn == true)
+        {
+            FindObjectOfType<energyController>().reduceEnergy(0.5f);
+        }
+    }
+
 }
