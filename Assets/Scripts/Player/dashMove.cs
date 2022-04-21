@@ -70,6 +70,7 @@ public class dashMove : MonoBehaviour
     public void enemyCollided()
     {
         dashTime = 0;
+        rb.velocity = new Vector2(0, 0);
     }
 
 }
