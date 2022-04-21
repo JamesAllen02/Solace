@@ -15,6 +15,7 @@ public class parryAttack : MonoBehaviour
     public Vector2 attackArea = new Vector2(0.6f, -0.15f);
     public float attackSize;
     public LayerMask enemyLayer;
+    public LayerMask itemLayer;
 
     public GameObject hitAnim;
 
@@ -30,8 +31,7 @@ public class parryAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, enemyLayer);
@@ -47,6 +47,7 @@ public class parryAttack : MonoBehaviour
 
             foreach (Collider2D fiend in enemyColliders)
             {
+                // Hits enemies
                 if(fiend.GetComponent<EnemyDamageTaken>() != null)
                 {
                     fiend.GetComponent<EnemyDamageTaken>().recieveDamage();
@@ -59,6 +60,16 @@ public class parryAttack : MonoBehaviour
                     {
                         fiend.GetComponent<EnemyDamageTaken>().hDir = -1;
                     }
+                }
+            }
+
+        // Hits object that you can destroy
+        Collider2D[] itemColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, itemLayer);
+            foreach (Collider2D items in itemColliders)
+            {
+                if (items.GetComponent<Destroyable>() != null)
+                {
+                    items.GetComponent<Destroyable>().destroyObject();
                 }
             }
 
