@@ -36,13 +36,12 @@ public class modeSelector : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) && Time.timeScale != 0.05f)
         {
             Time.timeScale = 0.05f;
-            uiSelect.SetActive(true);
+            uiSelect.GetComponent<ModeUI>().canSwap = true;
             uiAnim.SetBool("isOn", true);
 
         } else if(Input.GetKeyUp(KeyCode.Tab) && Time.timeScale == 0.05f)
         {
             Time.timeScale = 1f;
-            uiSelect.SetActive(false);
             uiAnim.SetBool("isOn", false);
         }
     }
@@ -50,21 +49,21 @@ public class modeSelector : MonoBehaviour
     public void combatMode(int number)
     {
         disableEverything();
-        if (number == 1)
+        if (number == 3)
         {
             print("Floating mode");
             ab1.enabled = true;
             floatDistance.SetActive(true);
             flyingOrb.SetActive(true);
         }
-        else if (number == 2)
+        else if (number == 1)
         {
             ab2.enabled = true;
             print("Combat mode");
             //shieldBox.SetActive(true);
 
         }
-        else if (number == 3)
+        else if (number == 2)
         {
             print("Shield mode");
             ab3.enabled = true;
@@ -97,6 +96,7 @@ public class modeSelector : MonoBehaviour
         ab4.enabled = false;
 
         dP.isMortal = true;
+        ab3.shieldOn = false;
 
         shieldCircle.SetActive(false);
         flyingOrb.SetActive(false);

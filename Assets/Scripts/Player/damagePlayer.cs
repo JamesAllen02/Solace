@@ -52,7 +52,10 @@ public class damagePlayer : MonoBehaviour
             hp--;
             isMortal = false;
             Invoke("becomeMortal", 1f);
-            dashScript.enemyCollided();
+            if(dashScript.dashTime < dashScript.startDashTime)
+            {
+                dashScript.enemyCollided();
+            }
 
             if (hp == 0)
             {

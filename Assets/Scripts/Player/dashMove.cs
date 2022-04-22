@@ -8,7 +8,7 @@ public class dashMove : MonoBehaviour
     private Rigidbody2D rb;
 
     public float dashSpeed;
-    private float dashTime;
+    public float dashTime;
     public float startDashTime;
     private bool canDash = true;
 

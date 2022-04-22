@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
     {
         if(collision.gameObject.transform.name == "player")
         {
-            FindObjectOfType<modeEnabler>().currentAbilities++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
