@@ -547,6 +547,34 @@ PrefabInstance:
       propertyPath: maxHP
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 84944315705247963, guid: 7b3184567b12ea748bafe259b8ab891e, type: 3}
+      propertyPath: m_Value
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 84944315705247963, guid: 7b3184567b12ea748bafe259b8ab891e, type: 3}
+      propertyPath: m_MaxValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 84944315705247963, guid: 7b3184567b12ea748bafe259b8ab891e, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84944315705247963, guid: 7b3184567b12ea748bafe259b8ab891e, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84944315705247963, guid: 7b3184567b12ea748bafe259b8ab891e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84944315705247963, guid: 7b3184567b12ea748bafe259b8ab891e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 84944315705247963, guid: 7b3184567b12ea748bafe259b8ab891e, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 84944315967050255, guid: 7b3184567b12ea748bafe259b8ab891e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -28109,6 +28137,10 @@ PrefabInstance:
     - target: {fileID: 8396848475208143842, guid: 2e963ccf6a7f4d64a977973eede59169, type: 3}
       propertyPath: m_Name
       value: Kurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396848476576190254, guid: 2e963ccf6a7f4d64a977973eede59169, type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: So glad that you're testing this game in its early stages!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e963ccf6a7f4d64a977973eede59169, type: 3}
