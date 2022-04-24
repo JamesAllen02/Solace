@@ -28,10 +28,8 @@ public class ModeUI : MonoBehaviour
                 // print(positions[i] + " and " + closestPos);
                 if(positions[i] == closestPos)
                 {
-                    print(canSwap);
                     if (Input.GetKeyUp(KeyCode.Tab) && canSwap == true)
                     {
-                        print("did it?");
                         GameObject.FindObjectOfType<modeSelector>().combatMode(i+1);
                         canSwap = false;
                     }

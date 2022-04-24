@@ -10,6 +10,7 @@ public class damagePlayer : MonoBehaviour
     public TextMeshProUGUI text;
     private float maxHp;
     private Rigidbody2D rb;
+    public GameObject hitEffect;
 
     public Animator deathAnim;
     public bool isDead = false;
@@ -52,6 +53,11 @@ public class damagePlayer : MonoBehaviour
             hp--;
             isMortal = false;
             Invoke("becomeMortal", 1f);
+            FindObjectOfType<CameraScript>().gotHit();
+
+            var prefab = Instantiate(hitEffect, new Vector3(transform.position.x, transform.position.y, -5), transform.rotation);
+            Destroy(prefab, 4);
+
             if(dashScript.dashTime < dashScript.startDashTime)
             {
                 dashScript.enemyCollided();

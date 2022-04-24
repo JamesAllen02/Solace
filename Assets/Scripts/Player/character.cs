@@ -55,7 +55,7 @@ public class character : MonoBehaviour
         wallCheck();
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.W) && grounded)
+        if (Input.GetKeyDown(KeyCode.W) && grounded || Input.GetKeyDown(KeyCode.Space) && grounded || Input.GetKeyDown(KeyCode.UpArrow) && grounded)
         {
             startHeight = this.transform.position.y;
             rb.velocity = new Vector2(rb.velocity.x, m_JumpForce);
@@ -80,7 +80,7 @@ public class character : MonoBehaviour
         {
             //rb.velocity = new Vector2(rb.velocity.x, 0);
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 rb.AddForce(new Vector2(300*-looking, 600));
                 StartCoroutine(waitWall());
@@ -120,17 +120,26 @@ public class character : MonoBehaviour
         }
     }
     
+        // public static RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction, float distance = Mathf.Infinity, groundLayer, float minDepth = -Mathf.Infinity, float maxDepth = Mathf.Infinity);
 
     void GroundCheck()
     {
-        if (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z), Vector3.down, groundedHeight + heightOffset, groundLayer))
+        grounded = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + heightOffset), groundedHeight, groundLayer);
+
+        /*if (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z), Vector3.down, groundedHeight + heightOffset, groundLayer))
         {
             grounded = true;
         }
         else
         {
             grounded = false;
-        }
+        }*/
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z), groundedHeight);
     }
 
     private void Awake()

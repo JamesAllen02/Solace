@@ -17,7 +17,7 @@ public class EnemyDamageTaken : MonoBehaviour
 
     public GameObject healingHeart;
 
-    //public Animator deathAnim;
+    public Animator enemyAnimator;
 
     public GameObject enemyToDie;
 
@@ -33,14 +33,19 @@ public class EnemyDamageTaken : MonoBehaviour
         hpRenderer.material.SetFloat("_Health", hp / startingHealth);
     }
 
-    public void recieveDamage()
+    public void recieveDamage(float dmg)
     {
         if (hp > 0)
         {
-            hp--;
+            hp -= dmg;
             rb.velocity = new Vector2(3 * hDir, 3);
 
-            if (hp == 0)
+            if(enemyAnimator != null)
+            {
+                enemyAnimator.SetTrigger("hurt");
+            }
+
+            if (hp <= 0)
             {
                 //deathAnim.SetBool("isDead", true);
                 var prefab = Instantiate(healingHeart, this.transform.position, this.transform.rotation);
@@ -54,7 +59,7 @@ public class EnemyDamageTaken : MonoBehaviour
     {
         if (collision.gameObject.layer == 13)
         {
-            recieveDamage();
+            recieveDamage(1);
         }
     }
 

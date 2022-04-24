@@ -15,6 +15,7 @@ public class parryAttack : MonoBehaviour
     public Vector2 attackArea = new Vector2(0.6f, -0.15f);
     public float attackSize;
     public LayerMask enemyLayer;
+    public LayerMask floorLayer;
     public LayerMask itemLayer;
 
     public GameObject hitAnim;
@@ -24,6 +25,7 @@ public class parryAttack : MonoBehaviour
     {
         coolDown = cdTime + upTime;
         shieldLocation = shield.transform.localPosition.x;
+        floorLayer = ~floorLayer;
     }
 
     private void OnDrawGizmos()
@@ -50,7 +52,14 @@ public class parryAttack : MonoBehaviour
                 // Hits enemies
                 if(fiend.GetComponent<EnemyDamageTaken>() != null)
                 {
-                    fiend.GetComponent<EnemyDamageTaken>().recieveDamage();
+                    // Checks that there isn't a wall between
+                    /*Vector3 direction = (fiend.transform.position - transform.position).normalized;
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, floorLayer))
+                    {
+                        Debug.Log("Did Hit");*/
+
+                    fiend.GetComponent<EnemyDamageTaken>().recieveDamage(1);
                     FindObjectOfType<energyController>().recieveEnergy();
                     if(this.transform.position.x < fiend.transform.position.x)
                     {

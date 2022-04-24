@@ -210,6 +210,7 @@ MonoBehaviour:
   hDir: 0
   rb: {fileID: 1344823541890344425}
   healingHeart: {fileID: 1251458970795234589, guid: 70b584a35b7d3dc48ba140f75d4c82e7, type: 3}
+  enemyAnimator: {fileID: 4000480104479324630}
   enemyToDie: {fileID: 1344823541890344420}
 --- !u!50 &1344823541890344425
 Rigidbody2D:

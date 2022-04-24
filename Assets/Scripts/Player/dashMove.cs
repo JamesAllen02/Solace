@@ -11,12 +11,16 @@ public class dashMove : MonoBehaviour
     public float dashTime;
     public float startDashTime;
     private bool canDash = true;
+    float timer = 0;
+    [SerializeField] private float coolDownTime = 0.5f;
+    public SpriteRenderer dashMeter;
 
     private int direction;
     private float playerLooking;
     private float playerEnergy;
 
-    [SerializeField] private GameObject dashParticle; 
+    [SerializeField] private GameObject dashParticle;
+
 
 
     private void Awake()
@@ -26,6 +30,7 @@ public class dashMove : MonoBehaviour
     
     void Start()
     {
+        timer = coolDownTime;
         dashTime = startDashTime;
     }
 
@@ -39,25 +44,31 @@ public class dashMove : MonoBehaviour
             canDash = true;
         }
 
+        // print(timer + " " + coolDownTime);
+
         if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.F) && (FindObjectOfType<energyController>().energy - 1) >= 0 && canDash)
+            if (Input.GetKeyDown(KeyCode.F) && canDash && timer > coolDownTime || Input.GetKeyDown(KeyCode.LeftShift) && canDash && timer > coolDownTime)
             {
+                // start Dash
                 var prefab = Instantiate(dashParticle, this.transform.position, Quaternion.identity);
                 Destroy(prefab, 1f);
                 direction = 1;
-                FindObjectOfType<energyController>().reduceEnergy(1f);
+                // FindObjectOfType<energyController>().reduceEnergy(1f);
                 canDash = false;
+                timer = 0;
             }
         } else
         {
             if(dashTime <= 0)
             {
+                // stop Dash
                 direction = 0;
                 dashTime = startDashTime;
                 rb.velocity = Vector2.zero;
             } else
             {
+                // During dash?
                 dashTime -= Time.deltaTime;
             }
             if (direction == 1)
@@ -65,6 +76,15 @@ public class dashMove : MonoBehaviour
                 rb.velocity = Vector2.right * dashSpeed * playerLooking;
             }
         }
+
+        timer += Time.deltaTime;
+
+        // calculate time left
+
+        dashMeter.material.SetFloat("_Health", timer / coolDownTime);
+
+
+
     }
 
     public void enemyCollided()
