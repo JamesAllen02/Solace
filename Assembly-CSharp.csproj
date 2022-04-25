@@ -53,6 +53,7 @@
     <UnityVersion>2020.3.16f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Player\CameraScript.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyDamageTaken.cs" />
     <Compile Include="Assets\Scripts\UI\ModeUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Dialogue\DialogueTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Player\modes\follower.cs" />
+    <Compile Include="Assets\Scripts\Effects\renderParticle.cs" />
     <Compile Include="Assets\Scripts\Player\modes\shockShield.cs" />
     <Compile Include="Assets\Scripts\Player\modes\modeEnabler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
@@ -125,8 +127,6 @@
     <Compile Include="Assets\Scripts\Enemies\Trixy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Scripts\Player\CameraScript.cs" />
-    <Compile Include="Assets\Scripts\Effects\renderParticle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

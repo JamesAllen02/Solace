@@ -21,6 +21,7 @@ public class dashMove : MonoBehaviour
 
     [SerializeField] private GameObject dashParticle;
 
+    public Animator guardianAnim;
 
 
     private void Awake()
@@ -57,6 +58,7 @@ public class dashMove : MonoBehaviour
                 // FindObjectOfType<energyController>().reduceEnergy(1f);
                 canDash = false;
                 timer = 0;
+                guardianAnim.SetBool("isDashing", true);
             }
         } else
         {
@@ -66,6 +68,7 @@ public class dashMove : MonoBehaviour
                 direction = 0;
                 dashTime = startDashTime;
                 rb.velocity = Vector2.zero;
+                guardianAnim.SetBool("isDashing", false);
             } else
             {
                 // During dash?

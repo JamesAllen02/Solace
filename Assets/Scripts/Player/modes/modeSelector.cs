@@ -33,16 +33,23 @@ public class modeSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && Time.timeScale != 0.05f)
+        if (Input.GetKeyDown(KeyCode.Tab) /*&& Time.timeScale != 0.05f*/)
         {
-            Time.timeScale = 0.05f;
+            // Time.timeScale = 0.05f;
             uiSelect.GetComponent<ModeUI>().canSwap = true;
             uiAnim.SetBool("isOn", true);
 
-        } else if(Input.GetKeyUp(KeyCode.Tab) && Time.timeScale == 0.05f)
+        } else if(Input.GetKeyUp(KeyCode.Tab) /*&& Time.timeScale == 0.05f*/)
         {
             Time.timeScale = 1f;
             uiAnim.SetBool("isOn", false);
+        }
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            Time.timeScale = 0.05f;
+        } else
+        {
+            //Time.timeScale = 1f;
         }
     }
 

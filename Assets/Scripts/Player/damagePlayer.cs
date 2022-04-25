@@ -19,6 +19,8 @@ public class damagePlayer : MonoBehaviour
     public healthBar hpBar;
     private dashMove dashScript;
 
+    private IEnumerator pause;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,9 @@ public class damagePlayer : MonoBehaviour
             Invoke("becomeMortal", 1f);
             FindObjectOfType<CameraScript>().gotHit();
 
+            Time.timeScale = 0.2f;
+            Invoke("fixTime", 0.2f/5f);
+
             var prefab = Instantiate(hitEffect, new Vector3(transform.position.x, transform.position.y, -5), transform.rotation);
             Destroy(prefab, 4);
 
@@ -70,8 +75,14 @@ public class damagePlayer : MonoBehaviour
             }
         }
 
-
     }
+
+    void fixTime()
+    {
+        Time.timeScale = 1;
+    }
+    
+
     public void recieveHealth()
     {
         hp++;

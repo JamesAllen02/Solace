@@ -58,7 +58,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: layers.Array.data[8]
-    value: 
+    value: Enemy Weapon
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: layers.Array.data[9]
@@ -106,15 +106,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: layers.Array.data[20]
-    value: 
+    value: NPCs
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: layers.Array.data[21]
-    value: 
+    value: Pick-Ups
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: layers.Array.data[22]
-    value: 
+    value: Items
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: layers.Array.data[23]
