@@ -16,10 +16,11 @@ public class EnemyDamageTaken : MonoBehaviour
     public Rigidbody2D rb;
 
     public GameObject healingHeart;
-
     public Animator enemyAnimator;
-
     public GameObject enemyToDie;
+
+    [SerializeField] private bool hasDeathAnim = false;
+    [SerializeField] private float deathTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,18 +41,40 @@ public class EnemyDamageTaken : MonoBehaviour
             hp -= dmg;
             rb.velocity = new Vector2(3 * hDir, 3);
 
-            if(enemyAnimator != null)
+            // Checks to see if we have an animator.
+
+            if (enemyAnimator != null)
             {
+                // If we have an animator, we can trigger a hurt animation.
                 enemyAnimator.SetTrigger("hurt");
             }
 
+            // Death
             if (hp <= 0)
             {
-                //deathAnim.SetBool("isDead", true);
-                var prefab = Instantiate(healingHeart, this.transform.position, this.transform.rotation);
+                
                 isDead = true;
-                Destroy(enemyToDie.gameObject);
+                if (hasDeathAnim)
+                {
+                    enemyAnimator.SetBool("dead", true);
+                    Invoke("spawnHeart", deathTime);
+                    Destroy(enemyToDie.gameObject, deathTime);
+                } else
+                {
+                    Invoke("spawnHeart", 0);
+                    Destroy(enemyToDie.gameObject);
+                }
             }
+        }
+    }
+
+    void spawnHeart()
+    {
+        print("spawn?");
+        // Checks to see if we have a prefab to spawn. If we have, do it.
+        if (healingHeart != null)
+        {
+            var prefab = Instantiate(healingHeart, this.transform.position, this.transform.rotation);
         }
     }
 
@@ -62,5 +85,4 @@ public class EnemyDamageTaken : MonoBehaviour
             recieveDamage(1);
         }
     }
-
 }

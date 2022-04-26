@@ -20863,7 +20863,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1274780503869823376, guid: 06b66e98382f0834fb828aebe7f838ab, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1274780503869823376, guid: 06b66e98382f0834fb828aebe7f838ab, type: 3}
       propertyPath: m_LocalScale.y
@@ -21271,6 +21271,8 @@ MonoBehaviour:
   healingHeart: {fileID: 1251458970795234589, guid: 70b584a35b7d3dc48ba140f75d4c82e7, type: 3}
   enemyAnimator: {fileID: 0}
   enemyToDie: {fileID: 569962094}
+  hasDeathAnim: 0
+  deathTime: 0
 --- !u!50 &3166488915585812165
 Rigidbody2D:
   serializedVersion: 4
@@ -28222,7 +28224,7 @@ Transform:
   - {fileID: 8166145941771909297}
   - {fileID: 8166145942334865372}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8166145941476817818
 MonoBehaviour:
