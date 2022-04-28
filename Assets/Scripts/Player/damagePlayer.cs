@@ -113,6 +113,22 @@ public class damagePlayer : MonoBehaviour
         }
     }
 
+    void OnParticleCollision(GameObject other)
+    {
+        if(other.gameObject.layer == 11)
+        {
+            recieveDamage();
+            if (this.transform.position.x < other.transform.position.x)
+            {
+                rb.velocity = new Vector2(-6, 6);
+            }
+            else if (this.transform.position.x > other.transform.position.x)
+            {
+                rb.velocity = new Vector2(6, 6);
+            }
+        }
+    }
+
     void becomeMortal()
     {
         isMortal = true;

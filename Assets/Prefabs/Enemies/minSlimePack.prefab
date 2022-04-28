@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3651609094011854002}
   - component: {fileID: 3651609094011854001}
   - component: {fileID: 3651609094011854000}
+  - component: {fileID: 3131788178189709694}
   m_Layer: 11
   m_Name: miniSlime
   m_TagString: Untagged
@@ -109,9 +110,14 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 0}
   onGround: 1
-  jumpLength: {x: 4, y: 4}
+  jumpLength: {x: 4, y: 5.5}
   initJump: {x: -6, y: 4}
-  jumpTimer: {x: 2, y: 1}
+  jumpTimer: {x: 1.5, y: 1}
+  groundedHeight: 0.33
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  heightOffset: -0.08
 --- !u!50 &3651609094011854003
 Rigidbody2D:
   serializedVersion: 4
@@ -178,10 +184,14 @@ MonoBehaviour:
   hDir: 0
   rb: {fileID: 3651609094011854003}
   healingHeart: {fileID: 0}
-  enemyAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 3131788178189709694}
   enemyToDie: {fileID: 3651609094011854007}
-  hasDeathAnim: 0
-  deathTime: 0
+  damager: {fileID: 3651609094011854000}
+  hasDeathAnim: 1
+  deathTime: 0.917
+  deathLayer:
+    serializedVersion: 2
+    m_Bits: 8388608
 --- !u!61 &3651609094011854000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -208,6 +218,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
+--- !u!95 &3131788178189709694
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651609094011854007}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5cf55a01c6f80b4aab6aff8ac57f641, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3651609094238211658
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +252,7 @@ GameObject:
   - component: {fileID: 3651609094238204342}
   - component: {fileID: 3651609094238204341}
   - component: {fileID: 3651609094238204340}
+  - component: {fileID: 185999390364624240}
   m_Layer: 11
   m_Name: miniSlime (1)
   m_TagString: Untagged
@@ -317,9 +347,14 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 0}
   onGround: 1
-  jumpLength: {x: 4, y: 4}
+  jumpLength: {x: 4, y: 5.5}
   initJump: {x: 6, y: 4}
-  jumpTimer: {x: 2, y: 1}
+  jumpTimer: {x: 1.5, y: 1}
+  groundedHeight: 0.33
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  heightOffset: -0.08
 --- !u!50 &3651609094238204343
 Rigidbody2D:
   serializedVersion: 4
@@ -386,10 +421,14 @@ MonoBehaviour:
   hDir: 0
   rb: {fileID: 3651609094238204343}
   healingHeart: {fileID: 1251458970795234589, guid: 70b584a35b7d3dc48ba140f75d4c82e7, type: 3}
-  enemyAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 185999390364624240}
   enemyToDie: {fileID: 3651609094238211658}
-  hasDeathAnim: 0
-  deathTime: 0
+  damager: {fileID: 3651609094238204340}
+  hasDeathAnim: 1
+  deathTime: 0.917
+  deathLayer:
+    serializedVersion: 2
+    m_Bits: 8388608
 --- !u!61 &3651609094238204340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -416,6 +455,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
+--- !u!95 &185999390364624240
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651609094238211658}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5cf55a01c6f80b4aab6aff8ac57f641, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3651609094617249113
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +523,7 @@ GameObject:
   - component: {fileID: 3651609094701594017}
   - component: {fileID: 3651609094701594016}
   - component: {fileID: 3651609094701594023}
+  - component: {fileID: 6788786120511578043}
   m_Layer: 11
   m_Name: miniSlime (2)
   m_TagString: Untagged
@@ -559,9 +618,14 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 0}
   onGround: 1
-  jumpLength: {x: 4, y: 4}
+  jumpLength: {x: 4, y: 5.5}
   initJump: {x: 12, y: 8}
-  jumpTimer: {x: 3, y: 1}
+  jumpTimer: {x: 2, y: 1}
+  groundedHeight: 0.33
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  heightOffset: -0.08
 --- !u!50 &3651609094701594018
 Rigidbody2D:
   serializedVersion: 4
@@ -628,10 +692,14 @@ MonoBehaviour:
   hDir: 0
   rb: {fileID: 3651609094701594018}
   healingHeart: {fileID: 0}
-  enemyAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 6788786120511578043}
   enemyToDie: {fileID: 3651609094701594021}
-  hasDeathAnim: 0
-  deathTime: 0
+  damager: {fileID: 3651609094701594023}
+  hasDeathAnim: 1
+  deathTime: 0.917
+  deathLayer:
+    serializedVersion: 2
+    m_Bits: 8388608
 --- !u!61 &3651609094701594023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -658,6 +726,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
+--- !u!95 &6788786120511578043
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651609094701594021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5cf55a01c6f80b4aab6aff8ac57f641, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3651609095119469702
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +760,7 @@ GameObject:
   - component: {fileID: 3651609095119469698}
   - component: {fileID: 3651609095119469697}
   - component: {fileID: 3651609095119469696}
+  - component: {fileID: 3884996299642278053}
   m_Layer: 11
   m_Name: miniSlime (3)
   m_TagString: Untagged
@@ -767,9 +855,14 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 0}
   onGround: 1
-  jumpLength: {x: 4, y: 4}
+  jumpLength: {x: 4, y: 5.5}
   initJump: {x: -12, y: 8}
-  jumpTimer: {x: 3, y: 1}
+  jumpTimer: {x: 2, y: 1}
+  groundedHeight: 0.33
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  heightOffset: -0.08
 --- !u!50 &3651609095119469699
 Rigidbody2D:
   serializedVersion: 4
@@ -836,10 +929,14 @@ MonoBehaviour:
   hDir: 0
   rb: {fileID: 3651609095119469699}
   healingHeart: {fileID: 1251458970795234589, guid: 70b584a35b7d3dc48ba140f75d4c82e7, type: 3}
-  enemyAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 3884996299642278053}
   enemyToDie: {fileID: 3651609095119469702}
-  hasDeathAnim: 0
-  deathTime: 0
+  damager: {fileID: 3651609095119469696}
+  hasDeathAnim: 1
+  deathTime: 0.917
+  deathLayer:
+    serializedVersion: 2
+    m_Bits: 8388608
 --- !u!61 &3651609095119469696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -866,6 +963,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
+--- !u!95 &3884996299642278053
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3651609095119469702}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a5cf55a01c6f80b4aab6aff8ac57f641, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3651609093508677809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -990,14 +1106,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f532e7c29d5055b4991577d11e11ba86, type: 3}
---- !u!212 &3284159167037623 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3649804604711837035, guid: f532e7c29d5055b4991577d11e11ba86, type: 3}
-  m_PrefabInstance: {fileID: 3651609093957131740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3284159167037624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3649804604711837028, guid: f532e7c29d5055b4991577d11e11ba86, type: 3}
+  m_PrefabInstance: {fileID: 3651609093957131740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3284159167037623 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3649804604711837035, guid: f532e7c29d5055b4991577d11e11ba86, type: 3}
   m_PrefabInstance: {fileID: 3651609093957131740}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3651609094307081840

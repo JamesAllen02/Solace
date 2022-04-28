@@ -18,9 +18,11 @@ public class EnemyDamageTaken : MonoBehaviour
     public GameObject healingHeart;
     public Animator enemyAnimator;
     public GameObject enemyToDie;
+    public BoxCollider2D damager;
 
     [SerializeField] private bool hasDeathAnim = false;
     [SerializeField] private float deathTime = 0;
+    [SerializeField] private LayerMask deathLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -54,8 +56,13 @@ public class EnemyDamageTaken : MonoBehaviour
             {
                 
                 isDead = true;
+                if(damager != null)
+                {
+                    damager.enabled = false;
+                }
                 if (hasDeathAnim)
                 {
+                    this.gameObject.layer = 23;
                     enemyAnimator.SetBool("dead", true);
                     Invoke("spawnHeart", deathTime);
                     Destroy(enemyToDie.gameObject, deathTime);
@@ -70,7 +77,7 @@ public class EnemyDamageTaken : MonoBehaviour
 
     void spawnHeart()
     {
-        print("spawn?");
+        // print("spawn?");
         // Checks to see if we have a prefab to spawn. If we have, do it.
         if (healingHeart != null)
         {

@@ -25,11 +25,17 @@ public class slimeEnemy : MonoBehaviour
     [SerializeField] private Vector2 initJump = new Vector2(4, 4);
     [SerializeField] private Vector2 jumpTimer = new Vector2(1, 1);
 
+    public float groundedHeight = 0.51f;
+    public LayerMask groundLayer;
+    public float heightOffset = 0.25f;
+    private bool groundCheck = true;
+
 
     void Start()
     {
         patrolPositions = new Vector2(positions.x + this.transform.position.x, positions.y + this.transform.position.x);
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         InvokeRepeating("keepJumping", jumpTimer.x, jumpTimer.y);
         rb.velocity += initJump;
@@ -38,7 +44,10 @@ public class slimeEnemy : MonoBehaviour
 
     void Update()
     {
+        onGround = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + heightOffset), groundedHeight, groundLayer);
         this.transform.localScale = new Vector3(cDir, 1, 1);
+
+        // State machine
         switch (enemyBehaviour)
         {
             case 1:
@@ -56,6 +65,20 @@ public class slimeEnemy : MonoBehaviour
             default:
                 break;
         }
+
+        // Landing animation logic
+        if (onGround == true && groundCheck == true)
+        {
+            // print("just landed");
+            anim.SetBool("Down", true);
+            groundCheck = false;
+        }
+        if (onGround == false)
+        {
+            anim.SetBool("Down", false);
+            groundCheck = true;
+        }
+        anim.SetFloat("Velocity", rb.velocity.y);
     }
 
     // Patrol script
@@ -79,8 +102,13 @@ public class slimeEnemy : MonoBehaviour
     // Simple function that moves it in a direction.
     void moveEnemy()
     {
-        rb.velocity = new Vector2(jumpLength.x * -cDir, jumpLength.y);
-        //transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPos, transform.position.y, 0), Time.deltaTime * moveSpeed);
+        if (this.GetComponent<EnemyDamageTaken>().isDead == false)
+        {
+            // print("up?");
+            anim.SetTrigger("Up");
+            rb.velocity = new Vector2(jumpLength.x * -cDir, jumpLength.y);
+            //transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPos, transform.position.y, 0), Time.deltaTime * moveSpeed);
+        }
     }
 
     void keepJumping()
@@ -152,6 +180,7 @@ public class slimeEnemy : MonoBehaviour
         Gizmos.DrawWireCube(new Vector3(positions.x + transform.position.x, this.transform.position.y, 0), new Vector3(1, 1, 1));
         Gizmos.DrawWireCube(new Vector3(positions.y + transform.position.x, this.transform.position.y, 0), new Vector3(1, 1, 1));
         Gizmos.DrawWireSphere(transform.position, checkDistance);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z), groundedHeight);
     }
 
 }

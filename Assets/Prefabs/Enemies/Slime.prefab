@@ -108,11 +108,16 @@ MonoBehaviour:
     m_Bits: 4096
   checkDistance: 7
   enemyBehaviour: 1
-  anim: {fileID: 0}
+  anim: {fileID: 1954702694600643112}
   onGround: 1
-  jumpLength: {x: 4, y: 4}
+  jumpLength: {x: 4, y: 8}
   initJump: {x: 0, y: 0}
   jumpTimer: {x: 1, y: 1}
+  groundedHeight: 0.75
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  heightOffset: -0.09
 --- !u!50 &1954702694600643125
 Rigidbody2D:
   serializedVersion: 4
@@ -181,8 +186,12 @@ MonoBehaviour:
   healingHeart: {fileID: 3651609094617249113, guid: 24a592b0537491f40a6bc1f9b87c29fc, type: 3}
   enemyAnimator: {fileID: 1954702694600643112}
   enemyToDie: {fileID: 1954702694600643120}
+  damager: {fileID: 0}
   hasDeathAnim: 1
   deathTime: 0.5
+  deathLayer:
+    serializedVersion: 2
+    m_Bits: 8388608
 --- !u!61 &1954702694600643127
 BoxCollider2D:
   m_ObjectHideFlags: 0
