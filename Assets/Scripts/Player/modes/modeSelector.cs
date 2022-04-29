@@ -75,7 +75,7 @@ public class modeSelector : MonoBehaviour
             print("Shield mode");
             ab3.enabled = true;
             shieldCircle.SetActive(true);
-            dP.isMortal = false;
+            dP.isMortal = true;
         }
         else if (number == 4)
         {

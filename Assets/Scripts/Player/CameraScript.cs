@@ -13,7 +13,7 @@ public class CameraScript : MonoBehaviour
 
     void Start()
     {
-        height = 2.01f;
+        height = 2.001f;
     }
 
 
@@ -29,6 +29,9 @@ public class CameraScript : MonoBehaviour
         } else if(height <= 2)
         {
             height += 15f * Time.deltaTime;
+        } else if(height >= 2)
+        {
+            height = 2.001f;
         }
 
         transform.localPosition = new Vector3(0, height, 0);

@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpRenderer: {fileID: 3187603078672764660}
-  hp: 20
+  hp: 10
   isMortal: 1
   isDead: 0
   hDir: 0
@@ -212,6 +212,12 @@ MonoBehaviour:
   healingHeart: {fileID: 1251458970795234589, guid: 70b584a35b7d3dc48ba140f75d4c82e7, type: 3}
   enemyAnimator: {fileID: 4000480104479324630}
   enemyToDie: {fileID: 1344823541890344420}
+  damager: {fileID: 0}
+  hasDeathAnim: 0
+  deathTime: 0
+  deathLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &1344823541890344425
 Rigidbody2D:
   serializedVersion: 4
