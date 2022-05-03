@@ -22,6 +22,7 @@ public class dashMove : MonoBehaviour
     [SerializeField] private GameObject dashParticle;
 
     public Animator guardianAnim;
+    public Animator dashAnim;
 
 
     private void Awake()
@@ -47,9 +48,15 @@ public class dashMove : MonoBehaviour
 
         // print(timer + " " + coolDownTime);
 
+        if(timer > coolDownTime)
+        {
+            // Can dash now
+            dashAnim.SetBool("dash", false);
+        }
+
         if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.F) && canDash && timer > coolDownTime || Input.GetKeyDown(KeyCode.LeftShift) && canDash && timer > coolDownTime)
+            if (Input.GetKeyDown(KeyCode.F) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false || Input.GetKeyDown(KeyCode.LeftShift) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false)
             {
                 // start Dash
                 var prefab = Instantiate(dashParticle, this.transform.position, Quaternion.identity);
@@ -59,6 +66,7 @@ public class dashMove : MonoBehaviour
                 canDash = false;
                 timer = 0;
                 guardianAnim.SetBool("isDashing", true);
+                dashAnim.SetBool("dash", true);
             }
         } else
         {

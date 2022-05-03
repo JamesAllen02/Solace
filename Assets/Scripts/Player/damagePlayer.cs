@@ -6,7 +6,7 @@ using TMPro;
 
 public class damagePlayer : MonoBehaviour
 {
-    public float hp = 10;
+    public float hp = 5;
     public TextMeshProUGUI text;
     private float maxHp;
     private Rigidbody2D rb;
@@ -18,6 +18,8 @@ public class damagePlayer : MonoBehaviour
 
     public healthBar hpBar;
     private dashMove dashScript;
+    [SerializeField] private Transform[] healthOrbs;
+    [SerializeField] private GameObject hpEffect;
 
     private IEnumerator pause;
 
@@ -32,8 +34,34 @@ public class damagePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Old alpha bar that we don't use
         hpBar.barSlider.value = hp;
 
+        // Logic for which orbs appear
+        for (int i = 0; i < healthOrbs.Length; i++)
+        {
+            if (hp > i)
+            {
+                if (healthOrbs[i].gameObject.GetComponent<SpriteRenderer>().enabled == false)
+                {
+                    // print("new orb");
+                    healthOrbs[i].gameObject.GetComponent<Animator>().SetTrigger("grow");
+                }
+
+                healthOrbs[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            } else if (hp <= i)
+            {
+                if (healthOrbs[i].gameObject.GetComponent<SpriteRenderer>().enabled == true)
+                {
+                    var prefab = Instantiate(hpEffect, healthOrbs[i].gameObject.transform.position, healthOrbs[i].gameObject.transform.rotation);
+                    prefab.transform.parent = healthOrbs[i].gameObject.transform;
+                    Destroy(prefab, 1f);
+                }
+                healthOrbs[i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+
+        // Prototype text that we don't use
         text.text = "HP: " + hp + "/" + maxHp;
 
         if (isDead && Input.GetKeyDown(KeyCode.Return))
@@ -43,9 +71,8 @@ public class damagePlayer : MonoBehaviour
             isDead = false;
         }
 
-        
-
     }
+
 
     public void recieveDamage()
     {
@@ -72,6 +99,7 @@ public class damagePlayer : MonoBehaviour
             {
                 deathAnim.SetBool("isDead", true);
                 isDead = true;
+                FindObjectOfType<character>().enabled = false;
             }
         }
 
