@@ -22,8 +22,11 @@ public class character : MonoBehaviour
     public float jumpHeight = 4;
     
     public SpriteRenderer stickRender;
+    public Animator playerAnim;
+    [SerializeField] private float wallDistance = 0.325f;
 
     private IEnumerator coroutine;
+
 
     private void Start()
     {
@@ -51,8 +54,8 @@ public class character : MonoBehaviour
 
     void Update()
     {
+        playerAnim.SetFloat("velocity", rb.velocity.y);
         GroundCheck();
-        wallCheck();
 
         // Jumping
         if (Input.GetKeyDown(KeyCode.W) && grounded || Input.GetKeyDown(KeyCode.Space) && grounded || Input.GetKeyDown(KeyCode.UpArrow) && grounded)
@@ -63,31 +66,40 @@ public class character : MonoBehaviour
         }
 
         // Moving left
-        if (Input.GetAxis("Horizontal") < 0)
+        if (!onWall && FindObjectOfType<dashMove>().isDashing == false)
         {
-            stickRender.flipX = true;
-            looking = -1;
-        }
-        // Moving right
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            stickRender.flipX = false;
-            looking = 1;
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                stickRender.flipX = true;
+                looking = -1;
+            }
+            // Moving right
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                stickRender.flipX = false;
+                looking = 1;
+            }
         }
 
         // Wall jump
-        if (onWall && !grounded)
+
+        wallCheck();
+        if (onWall)
         {
+
+            playerAnim.SetBool("onWall", true);
+
             //rb.velocity = new Vector2(rb.velocity.x, 0);
 
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            /*if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 rb.AddForce(new Vector2(300*-looking, 600));
                 StartCoroutine(waitWall());
-            }
+            }*/
 
         } else if (!onWall)
         {
+            playerAnim.SetBool("onWall", false);
         }
 
         if (this.transform.position.y > startHeight + jumpHeight)
@@ -108,15 +120,23 @@ public class character : MonoBehaviour
 
     void wallCheck()
     {
-        if (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), -Vector3.right, 0.325f, groundLayer) || Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector3.right, 0.325f, groundLayer))
+        if (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), -Vector3.right, wallDistance, groundLayer) && !grounded)
         {
             onWall = true;
+            stickRender.flipX = false;
+            looking = 1;
+        }
+        else if (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector3.right, wallDistance, groundLayer) && !grounded)
+        {
+            onWall = true;
+            stickRender.flipX = true;
+            looking = -1;
         }
         else
         {
             onWall = false;
-            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), -Vector3.right * 0.325f, Color.yellow);
-            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector3.right * 0.325f, Color.yellow);
+            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), -Vector3.right * wallDistance, Color.yellow);
+            Debug.DrawRay(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector3.right * wallDistance, Color.yellow);
         }
     }
     

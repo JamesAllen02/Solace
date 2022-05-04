@@ -23,6 +23,7 @@ public class dashMove : MonoBehaviour
 
     public Animator guardianAnim;
     public Animator dashAnim;
+    public bool isDashing = false;
 
 
     private void Awake()
@@ -67,6 +68,7 @@ public class dashMove : MonoBehaviour
                 timer = 0;
                 guardianAnim.SetBool("isDashing", true);
                 dashAnim.SetBool("dash", true);
+                isDashing = true;
             }
         } else
         {
@@ -77,6 +79,7 @@ public class dashMove : MonoBehaviour
                 dashTime = startDashTime;
                 rb.velocity = Vector2.zero;
                 guardianAnim.SetBool("isDashing", false);
+                isDashing = false;
             } else
             {
                 // During dash?
