@@ -19,6 +19,7 @@ public class modeSelector : MonoBehaviour
     public GameObject shieldBox;
 
     public damagePlayer dP;
+    public float characterSpeed;
 
     private void Start()
     {
@@ -26,6 +27,8 @@ public class modeSelector : MonoBehaviour
         ab2 = this.transform.GetComponent<parryAttack>();
         ab3 = this.transform.GetComponent<shockShield>();
         ab4 = this.transform.GetComponent<heal>();
+
+        characterSpeed = FindObjectOfType<character>().speed;
     }
 
 
@@ -58,28 +61,29 @@ public class modeSelector : MonoBehaviour
         disableEverything();
         if (number == 3)
         {
-            print("Floating mode");
+            // print("Floating mode");
             ab1.enabled = true;
             floatDistance.SetActive(true);
             flyingOrb.SetActive(true);
+            flyingOrb.transform.position = transform.position;
         }
         else if (number == 1)
         {
             ab2.enabled = true;
-            print("Combat mode");
+            // print("Combat mode");
             //shieldBox.SetActive(true);
 
         }
         else if (number == 2)
         {
-            print("Shield mode");
+            // print("Shield mode");
             ab3.enabled = true;
             shieldCircle.SetActive(true);
             dP.isMortal = true;
         }
         else if (number == 4)
         {
-            print("Health mode");
+            // print("Health mode");
             InvokeRepeating("healing", 4f, 4f);
             InvokeRepeating("replenish", 4f, 4f);
             ab4.enabled = true;
@@ -111,6 +115,8 @@ public class modeSelector : MonoBehaviour
         shieldBox.SetActive(false);
 
         CancelInvoke("healing");
+        this.GetComponent<dashMove>().enabled = true;
+        FindObjectOfType<character>().speed = characterSpeed;
     }
 
 }

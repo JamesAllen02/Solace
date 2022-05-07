@@ -500,7 +500,15 @@ MonoBehaviour:
   hDir: 0
   rb: {fileID: 2678879366420553037}
   healingHeart: {fileID: 1251458970795234589, guid: 70b584a35b7d3dc48ba140f75d4c82e7, type: 3}
+  enemyAnimator: {fileID: 0}
   enemyToDie: {fileID: 2678879366420553024}
+  damager: {fileID: 0}
+  hasDeathAnim: 0
+  deathTime: 0
+  deathLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  soul: {fileID: 2050435265373252930, guid: 45689bda04460f14f933cfc1cbe6a564, type: 3}
 --- !u!1 &2678879367694779520
 GameObject:
   m_ObjectHideFlags: 0

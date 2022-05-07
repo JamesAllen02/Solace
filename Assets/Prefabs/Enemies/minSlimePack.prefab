@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpRenderer: {fileID: 3284158793440730}
-  hp: 4
+  hp: 3
   isMortal: 1
   isDead: 0
   hDir: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpRenderer: {fileID: 3284158011765531}
-  hp: 4
+  hp: 3
   isMortal: 1
   isDead: 0
   hDir: 0
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpRenderer: {fileID: 3284157516966854}
-  hp: 4
+  hp: 3
   isMortal: 1
   isDead: 0
   hDir: 0
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpRenderer: {fileID: 3284159167037623}
-  hp: 4
+  hp: 3
   isMortal: 1
   isDead: 0
   hDir: 0

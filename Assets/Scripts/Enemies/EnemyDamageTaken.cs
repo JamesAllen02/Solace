@@ -6,7 +6,6 @@ public class EnemyDamageTaken : MonoBehaviour
 {
     public Renderer hpRenderer;
     private float startingHealth;
-
     public float hp = 10;
 
     public bool isMortal = true;
@@ -34,10 +33,12 @@ public class EnemyDamageTaken : MonoBehaviour
     void Update()
     {
         hpRenderer.material.SetFloat("_Health", hp / startingHealth);
+
     }
 
     public void recieveDamage(float dmg)
     {
+
         if (hp > 0)
         {
             hp -= dmg;

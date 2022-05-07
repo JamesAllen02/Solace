@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpRenderer: {fileID: 3187603078672764660}
-  hp: 10
+  hp: 4
   isMortal: 1
   isDead: 0
   hDir: 0

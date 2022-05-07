@@ -22,7 +22,7 @@ public class shockShield : MonoBehaviour
         cc = shieldCircle.GetComponent<CircleCollider2D>();
         sr = shieldCircle.GetComponent<SpriteRenderer>();
 
-        InvokeRepeating("reduceEnergy", 2, 2);
+        InvokeRepeating("reduceEnergy", 1, 1);
 
     }
 
@@ -32,9 +32,13 @@ public class shockShield : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == false)
         {
             shieldOn = true;
+            this.GetComponent<dashMove>().enabled = false;
+            FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed / 2;
         } else if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == true)
         {
             shieldOn = false;
+            this.GetComponent<dashMove>().enabled = true;
+            FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed;
         }
 
         if(FindObjectOfType<energyController>().energy > 0 && shieldOn == true)

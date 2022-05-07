@@ -252,6 +252,7 @@ MonoBehaviour:
   deathLayer:
     serializedVersion: 2
     m_Bits: 0
+  soul: {fileID: 2050435265373252930, guid: 45689bda04460f14f933cfc1cbe6a564, type: 3}
 --- !u!50 &6225183066875543621
 Rigidbody2D:
   serializedVersion: 4

@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpRenderer: {fileID: 2992301438736795834}
-  hp: 10
+  hp: 6
   isMortal: 1
   isDead: 0
   hDir: 0

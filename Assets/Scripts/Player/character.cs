@@ -15,6 +15,7 @@ public class character : MonoBehaviour
     public bool grounded = false;
     public bool onWall = false;
     public LayerMask groundLayer;
+    private bool shockShieldOn;
     public float heightOffset = 0.25f;
     public float looking = 1;
 
@@ -57,12 +58,23 @@ public class character : MonoBehaviour
         playerAnim.SetFloat("velocity", rb.velocity.y);
         GroundCheck();
 
-        // Jumping
-        if (Input.GetKeyDown(KeyCode.W) && grounded || Input.GetKeyDown(KeyCode.Space) && grounded || Input.GetKeyDown(KeyCode.UpArrow) && grounded)
+        // Checks if shield is on
+        if(FindObjectOfType<shockShield>().enabled == true && FindObjectOfType<shockShield>().shieldOn == true)
         {
-            startHeight = this.transform.position.y;
-            rb.velocity = new Vector2(rb.velocity.x, m_JumpForce);
+            shockShieldOn = true;
+        } else
+        {
+            shockShieldOn = false;
+        }
 
+        // Jumping
+        if (!shockShieldOn && grounded)
+        {
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                startHeight = this.transform.position.y;
+                rb.velocity = new Vector2(rb.velocity.x, m_JumpForce);
+            }
         }
 
         // Moving left

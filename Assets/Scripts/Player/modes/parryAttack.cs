@@ -19,6 +19,7 @@ public class parryAttack : MonoBehaviour
     public LayerMask itemLayer;
 
     public GameObject hitAnim;
+    [SerializeField] private GameObject soul;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +51,7 @@ public class parryAttack : MonoBehaviour
             foreach (Collider2D fiend in enemyColliders)
             {
                 // Hits enemies
-                if(fiend.GetComponent<EnemyDamageTaken>() != null)
+                if(fiend.GetComponent<EnemyDamageTaken>() != null && fiend.isTrigger)
                 {
                     // Checks that there isn't a wall between
                     /*Vector3 direction = (fiend.transform.position - transform.position).normalized;
@@ -60,8 +61,10 @@ public class parryAttack : MonoBehaviour
                         Debug.Log("Did Hit");*/
 
                     fiend.GetComponent<EnemyDamageTaken>().recieveDamage(1);
-                    FindObjectOfType<energyController>().recieveEnergy();
-                    if(this.transform.position.x < fiend.transform.position.x)
+                    // print(fiend.gameObject.name);
+                    var prefab = Instantiate(soul, fiend.transform.position, fiend.transform.rotation);
+                    // FindObjectOfType<energyController>().recieveEnergy();
+                    if (this.transform.position.x < fiend.transform.position.x)
                     {
                         fiend.GetComponent<EnemyDamageTaken>().hDir = 1;
                     }
