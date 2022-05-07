@@ -19,7 +19,7 @@ public class enemySouls : MonoBehaviour
             energyBarPos = FindObjectOfType<energyController>().energyPosition;
         // Send the souls to the energy
         Vector2 thisPos = new Vector2(transform.position.x, transform.position.y);
-        transform.position = Vector2.MoveTowards(thisPos, energyBarPos, 10 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(thisPos, energyBarPos, 17 * Time.deltaTime);
         // Add ewnergy and delete this.
         if(thisPos == energyBarPos && canGive)
         {
