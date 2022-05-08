@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\Items\Destroyable.cs" />
     <Compile Include="Assets\Scripts\Enemies\patrolEnemy.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Trixy2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Player\modes\follower.cs" />
     <Compile Include="Assets\Scripts\Effects\renderParticle.cs" />
@@ -132,7 +133,7 @@
     <Compile Include="Assets\Scripts\Enemies\Trixy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Scripts\Enemies\Trixy2.cs" />
+    <Compile Include="Assets\Scripts\Items\soulSpring.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -6,6 +6,7 @@ public class ModeUI : MonoBehaviour
 {
     public Transform[] positions;
     public Transform[] icons;
+    public Transform[] selectedIcons;
     Vector3 worldPosition;
     public Transform closestPos;
 
@@ -23,18 +24,29 @@ public class ModeUI : MonoBehaviour
 
         for (int i = 0; i < positions.Length; i++)
         {
-            if(i+1 <= currentAbilities)
+            selectedIcons[i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            if (i+1 <= currentAbilities)
             {
                 // print(positions[i] + " and " + closestPos);
                 if(positions[i] == closestPos)
                 {
+                    if (Input.GetKey(KeyCode.Tab))
+                    {
+                        icons[i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                        selectedIcons[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                    }
+                    // print(icons[i]);
                     if (Input.GetKeyUp(KeyCode.Tab) && canSwap == true)
                     {
+                        selectedIcons[i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
                         GameObject.FindObjectOfType<modeSelector>().combatMode(i+1);
                         canSwap = false;
                     }
                 }
-                icons[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                if(selectedIcons[i].gameObject.GetComponent<SpriteRenderer>().enabled == false)
+                {
+                    icons[i].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                }
             }
         }
 
