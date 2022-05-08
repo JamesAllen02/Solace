@@ -127,10 +127,10 @@ public class damagePlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 14 || collision.gameObject.layer == 11)
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 14 || collision.gameObject.layer == 11 || collision.gameObject.layer == 19)
         {
             recieveDamage();
-            if (this.transform.position.x < collision.transform.position.x)
+            if (this.transform.position.x <= collision.transform.position.x)
             {
                 rb.velocity = new Vector2(-6, 6);
             }

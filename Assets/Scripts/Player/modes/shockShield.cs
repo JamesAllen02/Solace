@@ -31,11 +31,13 @@ public class shockShield : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == false)
         {
+            FindObjectOfType<damagePlayer>().isMortal = false;
             shieldOn = true;
             this.GetComponent<dashMove>().enabled = false;
             FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed / 2;
         } else if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == true)
         {
+            FindObjectOfType<damagePlayer>().isMortal = true;
             shieldOn = false;
             this.GetComponent<dashMove>().enabled = true;
             FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed;

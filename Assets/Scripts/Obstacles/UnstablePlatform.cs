@@ -33,8 +33,8 @@ public class UnstablePlatform : MonoBehaviour
     private IEnumerator selfDestroyCoroutine()
     {
         yield return new WaitForSeconds(triggerDelay);
-        _animator.SetTrigger("trigger");
-        gameObject.layer = LayerMask.NameToLayer("Decoration");
+        _animator.SetTrigger("destroy");
+        gameObject.layer = LayerMask.NameToLayer("Enemy death layer");
         yield return new WaitForSeconds(selfDestroyDelay);
         Destroy(gameObject);
     }
