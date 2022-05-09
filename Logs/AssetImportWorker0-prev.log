@@ -1,0 +1,523 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.16f1 (049d6eca3c44) revision 302446'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19043.1645; Version 2009; 64bit' Language: 'en' Physical Memory: 32683 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\Unity\2020.3.16f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Unity/Solace/Solace
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+61005
+Successfully changed project path to: D:/Unity/Solace/Solace
+D:/Unity/Solace/Solace
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 34.80 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.16f1 (049d6eca3c44)
+[Subsystems] Discovering subsystems at path D:/Unity/2020.3.16f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Unity/Solace/Solace/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2070 SUPER (ID=0x1e84)
+    Vendor:   
+    VRAM:     8011 MB
+    Driver:   27.21.14.6663
+Initialize mono
+Mono path[0] = 'D:/Unity/2020.3.16f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/2020.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Unity/2020.3.16f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56548
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity/2020.3.16f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/Unity/2020.3.16f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: D:/Unity/2020.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001300 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 39.92 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.941 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1941ms)
+		BeginReloadAssembly (49ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (352ms)
+			LoadAssemblies (50ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (122ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (143ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (40ms)
+				BeforeProcessingInitializeOnLoad (13ms)
+				ProcessInitializeOnLoadAttributes (65ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002913 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 33.21 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.927 seconds
+Domain Reload Profiling:
+	ReloadAssembly (927ms)
+		BeginReloadAssembly (119ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (14ms)
+		EndReloadAssembly (764ms)
+			LoadAssemblies (82ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (237ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (321ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (33ms)
+				BeforeProcessingInitializeOnLoad (56ms)
+				ProcessInitializeOnLoadAttributes (214ms)
+				ProcessInitializeOnLoadMethodAttributes (11ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.44 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2233 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.5 MB.
+System memory in use after: 101.6 MB.
+
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 2674.
+Total: 2.645500 ms (FindLiveObjects: 0.177600 ms CreateObjectMapping: 0.082800 ms MarkObjects: 2.309800 ms  DeleteObjects: 0.074100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_11.asset
+  artifactKey: Guid(322bb3421be78e5478ebe82a0da59058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_11.asset using Guid(322bb3421be78e5478ebe82a0da59058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b89a85dbe74f619e5bf73189e34a89a') in 0.062170 seconds 
+  Import took 0.064927 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_19.asset
+  artifactKey: Guid(f723436fe2fca1941a5ec09ba579bbd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_19.asset using Guid(f723436fe2fca1941a5ec09ba579bbd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e49febd8bd575b32c84a0f324b35b7bb') in 0.010680 seconds 
+  Import took 0.013143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_10.asset
+  artifactKey: Guid(846c1bbb744b2b24094cf2f66e524d6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_10.asset using Guid(846c1bbb744b2b24094cf2f66e524d6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8a9c6c6ab07c79c85358a0366a6267e') in 0.006925 seconds 
+  Import took 0.009397 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Textures/Tilemaps
+  artifactKey: Guid(8cd768a4f3be307439598ae614e9242b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps using Guid(8cd768a4f3be307439598ae614e9242b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac1cb1fdc7d90feb7a27cb90093f3e3d') in 0.003677 seconds 
+  Import took 0.006065 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_28.asset
+  artifactKey: Guid(6925b5eba8b9efc47b63a762f0cfd8ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_28.asset using Guid(6925b5eba8b9efc47b63a762f0cfd8ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4d2e5cabc8cb1c39c5362d7a3606638') in 0.007189 seconds 
+  Import took 0.009997 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_21.asset
+  artifactKey: Guid(0f5531bdedf0e6e42a2ea932b62a6b51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_21.asset using Guid(0f5531bdedf0e6e42a2ea932b62a6b51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60cab4bf598219c0174a919bf056a791') in 0.006595 seconds 
+  Import took 0.009200 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_1.asset
+  artifactKey: Guid(db95eb6eb3bda3249aef3626074b351a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_1.asset using Guid(db95eb6eb3bda3249aef3626074b351a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac372b002a4dbac6e63ce2de5ff9bc67') in 0.006986 seconds 
+  Import took 0.009660 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_2.asset
+  artifactKey: Guid(9674ed3243931bd4e9bd37401ab406a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_2.asset using Guid(9674ed3243931bd4e9bd37401ab406a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f07a8f2a294738a046738d541b83916') in 0.006824 seconds 
+  Import took 0.009351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_13.asset
+  artifactKey: Guid(a4a631453568b514499efcda92248772) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_13.asset using Guid(a4a631453568b514499efcda92248772) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65182518080df02a752be35e88dd942a') in 0.007093 seconds 
+  Import took 0.009915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_29.asset
+  artifactKey: Guid(b7c65c5e991498741a5976bbb375397a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_29.asset using Guid(b7c65c5e991498741a5976bbb375397a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7d3430934e976c0bdfb6968001fe0de') in 0.007090 seconds 
+  Import took 0.009604 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000135 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_5.asset
+  artifactKey: Guid(75147ab1f021f1c45a30e0317f52506f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_5.asset using Guid(75147ab1f021f1c45a30e0317f52506f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4df859cf8a77a5cbbbdcaf2775f90dea') in 0.006728 seconds 
+  Import took 0.009580 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_23.asset
+  artifactKey: Guid(c95030fc4a7f53e4b82aa2ba744dda87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_23.asset using Guid(c95030fc4a7f53e4b82aa2ba744dda87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68c64576a01ad07c57595e8cea6f910a') in 0.006409 seconds 
+  Import took 0.009005 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_3.asset
+  artifactKey: Guid(1517ccf130f849a4fa093f27d55166b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_3.asset using Guid(1517ccf130f849a4fa093f27d55166b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fd0f5b7640097ca3f54c925fd1a0cc1') in 0.006215 seconds 
+  Import took 0.008778 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_18.asset
+  artifactKey: Guid(c7a7f08f04739aa41b24e6976214bcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_18.asset using Guid(c7a7f08f04739aa41b24e6976214bcfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad715c2ff5f75b12e54b9f78d9f5fde4') in 0.006778 seconds 
+  Import took 0.009419 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles.png
+  artifactKey: Guid(3c90edfd44c1fa54eb154bb8049ee8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles.png using Guid(3c90edfd44c1fa54eb154bb8049ee8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51cecb97d112d6316b53ade32bcc405b') in 0.067010 seconds 
+  Import took 0.069670 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_24.asset
+  artifactKey: Guid(7e09717ef3e624a47b31d74b6391fdce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_24.asset using Guid(7e09717ef3e624a47b31d74b6391fdce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c904a3161b9b16b9be51e0d143e63db8') in 0.006377 seconds 
+  Import took 0.008852 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_27.asset
+  artifactKey: Guid(92b71fa1b7c0ebb44ad6776d23704113) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_27.asset using Guid(92b71fa1b7c0ebb44ad6776d23704113) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82224af8491f6172822d97bffffa8b20') in 0.006252 seconds 
+  Import took 0.008868 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_14.asset
+  artifactKey: Guid(c55cfeb6304b20245baba31cb10e5df7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_14.asset using Guid(c55cfeb6304b20245baba31cb10e5df7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12a2d5cd866d4530017cf046f1eb9d7a') in 0.006395 seconds 
+  Import took 0.008928 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_6.asset
+  artifactKey: Guid(c783ea7fdce660f42a280b868cd7fb8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_6.asset using Guid(c783ea7fdce660f42a280b868cd7fb8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6848803b70fdadf650510f53a586ad0') in 0.006264 seconds 
+  Import took 0.008914 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_15.asset
+  artifactKey: Guid(582f86a6e199d3240bac2e210493f7f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_15.asset using Guid(582f86a6e199d3240bac2e210493f7f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aaa358eb343ff8bfb4d37a90fdef8fc4') in 0.006361 seconds 
+  Import took 0.008992 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_31.asset
+  artifactKey: Guid(72c8ac75ba5148f47ab9517f00d37491) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_31.asset using Guid(72c8ac75ba5148f47ab9517f00d37491) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acd740856acdf764205e0e13abc6dad7') in 0.007179 seconds 
+  Import took 0.009659 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_12.asset
+  artifactKey: Guid(d042a374255063e4babf8ab4364ddcb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_12.asset using Guid(d042a374255063e4babf8ab4364ddcb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6188644b41a202bd1580f901d2fc8068') in 0.006607 seconds 
+  Import took 0.009079 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_32.asset
+  artifactKey: Guid(7edf25ae082484b43a99ac0a23ccad1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_32.asset using Guid(7edf25ae082484b43a99ac0a23ccad1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf07bf3add01d9d77e84c0594d96c139') in 0.006477 seconds 
+  Import took 0.008898 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_0.asset
+  artifactKey: Guid(917301c0498e27b4582205aeb28ed244) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_0.asset using Guid(917301c0498e27b4582205aeb28ed244) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b194f506ca2dfced01b401a4383aa829') in 0.006167 seconds 
+  Import took 0.008584 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_26.asset
+  artifactKey: Guid(980dfc5b0a2aec043ac03db95dd2cec5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_26.asset using Guid(980dfc5b0a2aec043ac03db95dd2cec5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4f121e212e70306db9cfd3ee9d63c6e') in 0.006731 seconds 
+  Import took 0.009089 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_16.asset
+  artifactKey: Guid(6462e4e9713c74146ae7945fd8450a47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_16.asset using Guid(6462e4e9713c74146ae7945fd8450a47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c30196446c81ff3b5c147dc89a325bc') in 0.006164 seconds 
+  Import took 0.008507 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_17.asset
+  artifactKey: Guid(a94243766ed3cf64abdbd2728cd0de12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_17.asset using Guid(a94243766ed3cf64abdbd2728cd0de12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4231831e40de13ee7d5786dbdbb14ef7') in 0.006182 seconds 
+  Import took 0.008515 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Textures/Tilemaps/Level 1
+  artifactKey: Guid(b34897aca65811448b848e741d5d0512) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1 using Guid(b34897aca65811448b848e741d5d0512) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61cbe8a35174db14e73055a9ceecbdd3') in 0.003320 seconds 
+  Import took 0.005486 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000168 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_8.asset
+  artifactKey: Guid(881dadb1515da45469853b5d098dae88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_8.asset using Guid(881dadb1515da45469853b5d098dae88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0de657aa4c6807a087ec8d288d68f651') in 0.006288 seconds 
+  Import took 0.008617 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_22.asset
+  artifactKey: Guid(916fd7f55000b1d44be0367e67787552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_22.asset using Guid(916fd7f55000b1d44be0367e67787552) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cbd815ca6c613246f1b15f9845718d5') in 0.006170 seconds 
+  Import took 0.008569 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_30.asset
+  artifactKey: Guid(291ac57c018725b4392f4906b33a31d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_30.asset using Guid(291ac57c018725b4392f4906b33a31d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33376f44fdb1addb92990ce36d5ad7f3') in 0.006106 seconds 
+  Import took 0.008498 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_4.asset
+  artifactKey: Guid(f957bb196eb044349aeab6ded10d3090) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_4.asset using Guid(f957bb196eb044349aeab6ded10d3090) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36b76095678ecd3f74bcf4cafbe802c1') in 0.006799 seconds 
+  Import took 0.009196 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_20.asset
+  artifactKey: Guid(cf0d3c3093036784194de655b297c0b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_20.asset using Guid(cf0d3c3093036784194de655b297c0b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2dbc0961effe519dd2aadabc2d2b3d8') in 0.007795 seconds 
+  Import took 0.010299 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000127 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/New Palette.prefab
+  artifactKey: Guid(64b826455e3669a45a342ad28d867648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/New Palette.prefab using Guid(64b826455e3669a45a342ad28d867648) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddacaf4a91b07a32a476485228575554') in 0.030578 seconds 
+  Import took 0.033321 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_25.asset
+  artifactKey: Guid(90bc8e8a490e5d045b22ac2125888bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_25.asset using Guid(90bc8e8a490e5d045b22ac2125888bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5cb0cb9904d078c16fe095fd461abd63') in 0.006848 seconds 
+  Import took 0.009284 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_7.asset
+  artifactKey: Guid(a2c06286c09d444449cf1582d9835316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_7.asset using Guid(a2c06286c09d444449cf1582d9835316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b860b40fb6311a9e685d5141f17e00a1') in 0.006760 seconds 
+  Import took 0.009113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles_9.asset
+  artifactKey: Guid(88c97cae2f2d2cf42b7e151f4680f1f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles_9.asset using Guid(88c97cae2f2d2cf42b7e151f4680f1f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73f5320c9d0f1e0ee952e0a5b8a0159b') in 0.006401 seconds 
+  Import took 0.008789 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 59.0 MB.
+System memory in use after: 59.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2686.
+Total: 3.065700 ms (FindLiveObjects: 0.207500 ms CreateObjectMapping: 0.074800 ms MarkObjects: 2.771700 ms  DeleteObjects: 0.011200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 50.261662 seconds.
+  path: Assets/Textures/Tilemaps/Level 1/snowTiles.png
+  artifactKey: Guid(3c90edfd44c1fa54eb154bb8049ee8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Textures/Tilemaps/Level 1/snowTiles.png using Guid(3c90edfd44c1fa54eb154bb8049ee8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20586b02b1e30fb0fb4fa2bd5a6c31e6') in 0.051424 seconds 
+  Import took 0.054268 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002969 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.858 seconds
+Domain Reload Profiling:
+	ReloadAssembly (858ms)
+		BeginReloadAssembly (102ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (707ms)
+			LoadAssemblies (80ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (245ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (279ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (56ms)
+				ProcessInitializeOnLoadAttributes (210ms)
+				ProcessInitializeOnLoadMethodAttributes (4ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.40 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2203 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 102.1 MB.
+System memory in use after: 102.3 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2689.
+Total: 2.347700 ms (FindLiveObjects: 0.149400 ms CreateObjectMapping: 0.067200 ms MarkObjects: 2.117700 ms  DeleteObjects: 0.012700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
