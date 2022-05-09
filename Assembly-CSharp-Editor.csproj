@@ -53,10 +53,10 @@
     <UnityVersion>2020.3.16f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\AllIn1VfxToolkit\Editor\AllIn1VfxEditor.cs" />
-    <Compile Include="Assets\AllIn1VfxToolkit\Editor\AllIn1VfxGradientDrawer.cs" />
     <Compile Include="Assets\AllIn1VfxToolkit\Editor\AllIn1VfxCustomMaterialEditor.cs" />
+    <Compile Include="Assets\AllIn1VfxToolkit\Editor\AllIn1VfxEditor.cs" />
     <Compile Include="Assets\AllIn1VfxToolkit\Editor\AllIn1ParticleHelperEditor.cs" />
+    <Compile Include="Assets\AllIn1VfxToolkit\Editor\AllIn1VfxGradientDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

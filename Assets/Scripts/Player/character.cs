@@ -24,6 +24,7 @@ public class character : MonoBehaviour
     
     public SpriteRenderer stickRender;
     public Animator playerAnim;
+    public bool isSitting = false;
     [SerializeField] private float wallDistance = 0.325f;
 
     private IEnumerator coroutine;
@@ -55,6 +56,14 @@ public class character : MonoBehaviour
 
     void Update()
     {
+        if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("sit"))
+        {
+            isSitting = true;
+        } else
+        {
+            isSitting = false;
+        }
+
         playerAnim.SetFloat("velocity", rb.velocity.y);
         GroundCheck();
 
@@ -68,7 +77,7 @@ public class character : MonoBehaviour
         }
 
         // Jumping
-        if (!shockShieldOn && grounded)
+        if (!shockShieldOn && grounded && !isSitting)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -78,7 +87,7 @@ public class character : MonoBehaviour
         }
 
         // Moving left
-        if (!onWall && FindObjectOfType<dashMove>().isDashing == false)
+        if (!onWall && FindObjectOfType<dashMove>().isDashing == false && !isSitting)
         {
             if (Input.GetAxis("Horizontal") < 0)
             {
@@ -182,6 +191,9 @@ public class character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += Vector3.right * Input.GetAxis("Horizontal") * speed;
+        if (!isSitting)
+        {
+            transform.position += Vector3.right * Input.GetAxis("Horizontal") * speed;
+        }
     }
 }

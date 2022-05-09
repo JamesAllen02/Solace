@@ -35,7 +35,7 @@ public class DialogueManager : MonoBehaviour {
 
 		DisplayNextSentence();
 	}
-
+    /*
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour {
             DisplayNextSentence();
         }
     }
-
+    */
     public void DisplayNextSentence ()
 	{
 		if (sentences.Count == 0)

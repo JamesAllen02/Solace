@@ -52,6 +52,7 @@ public class shockShield : MonoBehaviour
             cc.enabled = false;
             sr.enabled = false;
             shieldOn = false;
+            FindObjectOfType<damagePlayer>().isMortal = true;
         }
 
         // Checks for nearby enemies

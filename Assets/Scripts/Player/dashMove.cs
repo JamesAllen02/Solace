@@ -57,7 +57,7 @@ public class dashMove : MonoBehaviour
 
         if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.F) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false || Input.GetKeyDown(KeyCode.LeftShift) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false)
+            if (Input.GetKeyDown(KeyCode.F) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false && !FindObjectOfType<character>().isSitting || Input.GetKeyDown(KeyCode.LeftShift) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false && !FindObjectOfType<character>().isSitting)
             {
                 // start Dash
                 var prefab = Instantiate(dashParticle, this.transform.position, Quaternion.identity);

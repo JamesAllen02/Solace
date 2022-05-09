@@ -8,7 +8,7 @@ public class damagePlayer : MonoBehaviour
 {
     public float hp = 5;
     public TextMeshProUGUI text;
-    private float maxHp;
+    public float maxHp;
     private Rigidbody2D rb;
     public GameObject hitEffect;
 
@@ -21,11 +21,14 @@ public class damagePlayer : MonoBehaviour
     [SerializeField] private Transform[] healthOrbs;
     [SerializeField] private GameObject hpEffect;
 
+    public Vector3 lastCheckPos;
+
     private IEnumerator pause;
 
     // Start is called before the first frame update
     void Start()
     {
+        lastCheckPos = transform.position;
         maxHp = hp;
         rb = this.GetComponent<Rigidbody2D>();
         dashScript = FindObjectOfType<dashMove>();
@@ -68,6 +71,11 @@ public class damagePlayer : MonoBehaviour
         {
             Destroy(FindObjectOfType<dontDestroy>().gameObject);
             SceneManager.LoadScene(1);
+            /*GetComponent<energyController>().energy = GetComponent<energyController>().maxEnergy;
+            hp = maxHp;
+            transform.position = lastCheckPos;
+            deathAnim.SetBool("isDead", false);
+            FindObjectOfType<character>().enabled = true;*/
             isDead = false;
         }
 
