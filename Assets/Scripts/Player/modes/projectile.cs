@@ -16,11 +16,11 @@ public class projectile : MonoBehaviour
     
     void Update()
     {
-        if(enemy != null)
+        if(enemy != null && FindObjectOfType<follower>() != null)
         {
             enemyPos = enemy.position;
             transform.position = Vector3.MoveTowards(transform.position, enemyPos, Time.deltaTime * FindObjectOfType<follower>().shotSpeed);
-        } else if(enemy == null)
+        } else if(enemy == null || FindObjectOfType<follower>() == null)
         {
             Destroy(gameObject);
         }

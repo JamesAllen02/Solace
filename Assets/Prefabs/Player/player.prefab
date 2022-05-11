@@ -66,7 +66,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,8 +122,10 @@ MonoBehaviour:
   heightOffset: 0.25
   looking: 1
   jumpHeight: 100
-  stickAnim: {fileID: 1074908170622383365}
   stickRender: {fileID: 1074908170622383386}
+  playerAnim: {fileID: 0}
+  isSitting: 0
+  wallDistance: 0.325
 --- !u!114 &1074908170243364005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +140,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   text: {fileID: 0}
+  maxHp: 0
+  hitEffect: {fileID: 0}
+  deathAnim: {fileID: 0}
+  isDead: 0
+  isMortal: 1
+  hpBar: {fileID: 0}
+  healthOrbs: []
+  hpEffect: {fileID: 0}
+  lastCheckPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1074908170243364056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +163,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 10
   text: {fileID: 0}
+  maxEnergy: 0
+  energyBar: {fileID: 0}
+  energyPosition: {x: 0, y: 0}
 --- !u!50 &1074908170243364003
 Rigidbody2D:
   serializedVersion: 4
@@ -217,6 +231,8 @@ MonoBehaviour:
   flyingOrb: {fileID: 0}
   floatDistance: {fileID: 3217962553077847308}
   shieldBox: {fileID: 3217962551628445276}
+  dP: {fileID: 0}
+  characterSpeed: 0
 --- !u!114 &3217962551537923976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +270,7 @@ MonoBehaviour:
     m_Bits: 2048
   enemy01: {fileID: 0}
   enemyClose: 0
+  shieldOn: 0
 --- !u!114 &3217962551864338228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,11 +284,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 3217962551628445276}
+  cdTime: 0.5
+  upTime: 0.5
   attackArea: {x: 0.6, y: -0.15}
   attackSize: 0.6
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  itemLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  hitAnim: {fileID: 0}
+  soul: {fileID: 0}
 --- !u!114 &1074908170243364004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,8 +324,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashSpeed: 40
+  dashTime: 0
   startDashTime: 0.15
+  coolDownTime: 0.5
+  dashMeter: {fileID: 0}
   dashParticle: {fileID: 3512411840189781449, guid: 585d40f514e229749b11815a796672cc, type: 3}
+  guardianAnim: {fileID: 0}
+  dashAnim: {fileID: 0}
+  isDashing: 0
 --- !u!1 &1074908170622383367
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +383,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -379,7 +412,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1074908170622383365
@@ -392,7 +425,7 @@ Animator:
   m_GameObject: {fileID: 1074908170622383367}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: acd7e99676fa78c41862e6db01fe3d26, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -453,7 +486,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -582,7 +615,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -667,7 +700,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -891,7 +924,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -973,7 +1006,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1055,7 +1088,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1137,7 +1170,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1219,7 +1252,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

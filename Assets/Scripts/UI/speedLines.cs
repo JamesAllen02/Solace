@@ -19,7 +19,7 @@ public class speedLines : MonoBehaviour
     void Update()
     {
         hp = FindObjectOfType<damagePlayer>().hp;
-        speedValue = ((1 - (hp / maxHp)) / 4) + 0.15f;
+        speedValue = ((1 - (hp / maxHp)) / 2);
 
         speedObject.GetComponent<Renderer>().material.SetFloat("_Strength", speedValue);
     }
