@@ -15,6 +15,7 @@ ScriptsOnlyBuild:
     - Trixy2
     - cameraFollow
     - character
+    - checkpoint
     - clickDialogue
     - clickSelector
     - damagePlayer
@@ -23,6 +24,7 @@ ScriptsOnlyBuild:
     - enemyProjectile
     - enemySouls
     - energyController
+    - fallingIcicles
     - floatingOrb
     - follower
     - heal
@@ -38,11 +40,13 @@ ScriptsOnlyBuild:
     - projectile
     - shockShield
     - slimeEnemy
+    - soulSpring
     - speedLines
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -58,6 +62,8 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
+    Unity.CollabProxy.Editor.dll:
+    - Unity.Cloud.Collaborate.UserInterface.CollaborateWindow
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -105,8 +111,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -163,7 +171,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2740}
     - Class: 114
+      Script: {instanceID: 2838}
+    - Class: 114
+      Script: {instanceID: 3098}
+    - Class: 114
       Script: {instanceID: 4002}
+    - Class: 114
+      Script: {instanceID: 5102}
     - Class: 114
       Script: {instanceID: 5728}
     - Class: 114
@@ -228,6 +242,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4002}
     - Class: 114
+      Script: {instanceID: 5102}
+    - Class: 114
       Script: {instanceID: 5728}
     - Class: 114
       Script: {instanceID: 6126}
@@ -288,6 +304,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 2740}
     - Class: 114
       Script: {instanceID: 4002}
+    - Class: 114
+      Script: {instanceID: 5102}
     - Class: 114
       Script: {instanceID: 5728}
     - Class: 114
@@ -525,6 +543,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2142}
     - Class: 114
+      Script: {instanceID: 2176}
+    - Class: 114
       Script: {instanceID: 2366}
     - Class: 114
       Script: {instanceID: 2420}
@@ -554,6 +574,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3970}
     - Class: 114
       Script: {instanceID: 4002}
+    - Class: 114
+      Script: {instanceID: 4342}
     - Class: 114
       Script: {instanceID: 4398}
     - Class: 114
@@ -1327,7 +1349,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerEnumHistory
   - hash:
       serializedVersion: 2
-      Hash: ccf22d249abfe41c6ed3c395abd01431
+      Hash: 7e2eb6da7502e726266f07f950acab73
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: fallingIcicles
@@ -1885,7 +1907,7 @@ ScriptsOnlyBuild:
     className: AllIn1VfxAutoDestroy
   - hash:
       serializedVersion: 2
-      Hash: 65113f1bfaaa6f04ec5cdc42b643508a
+      Hash: efe3fee2917733c546887ff24d87cd18
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: modeSelector

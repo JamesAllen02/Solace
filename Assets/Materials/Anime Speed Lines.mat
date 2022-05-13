@@ -46,6 +46,6 @@ Material:
     - __dirty: 0
     - _strength: 0.441
     m_Colors:
-    - _Colour: {r: 4.0472007, g: 4.0472007, b: 4.0472007, a: 1}
+    - _Colour: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

@@ -8,6 +8,7 @@ public class fallingIcicles : MonoBehaviour
     private Rigidbody2D irb;
     [SerializeField] private LayerMask playerLayer;
     private bool isFalling = false;
+    [SerializeField] private float fallDistance = 5;
 
     void Start()
     {
@@ -17,7 +18,7 @@ public class fallingIcicles : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 5, playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, fallDistance, playerLayer);
         // If it hits something...
         if (!isFalling && hit.collider != null)
         {
@@ -42,7 +43,7 @@ public class fallingIcicles : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Debug.DrawRay(transform.position, -Vector2.up * 5, Color.green);
+        Debug.DrawRay(transform.position, -Vector2.up * fallDistance, Color.green);
     }
 
 }

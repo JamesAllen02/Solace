@@ -20,6 +20,7 @@ public class modeSelector : MonoBehaviour
 
     public damagePlayer dP;
     public float characterSpeed;
+    public GameObject playerLight;
 
     private void Start()
     {
@@ -72,7 +73,7 @@ public class modeSelector : MonoBehaviour
             ab2.enabled = true;
             // print("Combat mode");
             //shieldBox.SetActive(true);
-
+            playerLight.SetActive(true);
         }
         else if (number == 2)
         {
@@ -80,6 +81,7 @@ public class modeSelector : MonoBehaviour
             ab3.enabled = true;
             shieldCircle.SetActive(true);
             dP.isMortal = true;
+            playerLight.SetActive(true);
         }
         else if (number == 4)
         {
@@ -87,6 +89,7 @@ public class modeSelector : MonoBehaviour
             InvokeRepeating("healing", 4f, 4f);
             InvokeRepeating("replenish", 4f, 4f);
             ab4.enabled = true;
+            playerLight.SetActive(true);
         }
     }
 
@@ -114,6 +117,7 @@ public class modeSelector : MonoBehaviour
         floatDistance.SetActive(false);
         shieldBox.SetActive(false);
 
+        playerLight.SetActive(false);
         CancelInvoke("healing");
         this.GetComponent<dashMove>().enabled = true;
         FindObjectOfType<character>().speed = characterSpeed;
