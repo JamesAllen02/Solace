@@ -111,6 +111,7 @@ public class modeSelector : MonoBehaviour
 
         dP.isMortal = true;
         ab3.shieldOn = false;
+        FindObjectOfType<damagePlayer>().shieldOn = false;
 
         shieldCircle.SetActive(false);
         flyingOrb.SetActive(false);

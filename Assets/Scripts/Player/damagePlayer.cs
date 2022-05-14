@@ -15,6 +15,7 @@ public class damagePlayer : MonoBehaviour
     public Animator deathAnim;
     public bool isDead = false;
     public bool isMortal = true;
+    public bool shieldOn = false;
 
     public healthBar hpBar;
     private dashMove dashScript;
@@ -84,7 +85,7 @@ public class damagePlayer : MonoBehaviour
 
     public void recieveDamage()
     {
-        if (hp > 0 && isMortal == true)
+        if (hp > 0 && isMortal == true && !shieldOn)
         {
 
             hp--;

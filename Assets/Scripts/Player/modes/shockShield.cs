@@ -28,16 +28,17 @@ public class shockShield : MonoBehaviour
 
     void Update()
     {
+        FindObjectOfType<damagePlayer>().shieldOn = shieldOn;
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == false)
         {
-            FindObjectOfType<damagePlayer>().isMortal = false;
+            // FindObjectOfType<damagePlayer>().shieldOn = false;
             shieldOn = true;
             this.GetComponent<dashMove>().enabled = false;
             FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed / 2;
         } else if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == true)
         {
-            FindObjectOfType<damagePlayer>().isMortal = true;
+            // FindObjectOfType<damagePlayer>().isMortal = true;
             shieldOn = false;
             this.GetComponent<dashMove>().enabled = true;
             FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed;
@@ -52,7 +53,7 @@ public class shockShield : MonoBehaviour
             cc.enabled = false;
             sr.enabled = false;
             shieldOn = false;
-            FindObjectOfType<damagePlayer>().isMortal = true;
+            // FindObjectOfType<damagePlayer>().isMortal = true;
         }
 
         // Checks for nearby enemies

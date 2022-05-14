@@ -42,12 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 1314457723
-    locked: 0
-  - name: Player
-    uniqueID: 2791529555
-    locked: 0
   - name: Tilemap
     uniqueID: 709531311
+    locked: 0
+  - name: Back decoration
+    uniqueID: 1513141685
+    locked: 0
+  - name: Characters
+    uniqueID: 1909770627
+    locked: 0
+  - name: UI
+    uniqueID: 1314457723
     locked: 0
