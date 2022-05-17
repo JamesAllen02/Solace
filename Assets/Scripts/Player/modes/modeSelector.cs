@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.DualShock;
 
 public class modeSelector : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class modeSelector : MonoBehaviour
     public float characterSpeed;
     public GameObject playerLight;
 
+    public bool wheelUp = false;
+    public bool psDpadWheel = false;
+
     private void Start()
     {
         ab1 = this.transform.GetComponent<floatingOrb>();
@@ -32,18 +37,79 @@ public class modeSelector : MonoBehaviour
         characterSpeed = FindObjectOfType<character>().speed;
     }
 
+    public void openWheel(InputAction.CallbackContext context)
+    {
+        if (context.started && FindObjectOfType<PauseMenu>().paused == false)
+        {
+            Time.timeScale = 0.05f;
+            uiSelect.GetComponent<ModeUI>().canSwap = true;
+            uiAnim.SetBool("isOn", true);
+            wheelUp = true;
+        } else if (context.canceled && FindObjectOfType<PauseMenu>().paused == false)
+        {
+            wheelUp = false;
+            Time.timeScale = 1f;
+            uiAnim.SetBool("isOn", false);
+        }
+    }
+
+    public void controllerSwap(InputAction.CallbackContext context)
+    {
+        if (context.started && wheelUp)
+        {
+            psDpadWheel = true;
+            var gamepad = (DualShockGamepad)Gamepad.all[0];
+            var value = context.ReadValue<Vector2>();
+            if (value.y == 1 && FindObjectOfType<ModeUI>().currentAbilities >= 3)
+            {
+                // print("top");
+                combatMode(3);
+                gamepad.SetLightBarColor(Color.yellow);
+                FindObjectOfType<ModeUI>().selectedIcons[2].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else if (value.x == 1 && FindObjectOfType<ModeUI>().currentAbilities >= 1)
+            {
+                // print("right");
+                combatMode(1);
+                gamepad.SetLightBarColor(Color.blue);
+                FindObjectOfType<ModeUI>().selectedIcons[0].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else if (value.y == -1 && FindObjectOfType<ModeUI>().currentAbilities >= 2)
+            {
+                // print("bottom");
+                combatMode(2);
+                gamepad.SetLightBarColor(Color.magenta);
+                FindObjectOfType<ModeUI>().selectedIcons[1].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            else if (value.x == -1 && FindObjectOfType<ModeUI>().currentAbilities >= 4)
+            {
+                // print("left");
+                combatMode(4);
+                gamepad.SetLightBarColor(Color.red);
+                FindObjectOfType<ModeUI>().selectedIcons[3].gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        } else if (context.canceled)
+        {
+            psDpadWheel = false;
+            for (int i = 0; i < 4; i++)
+            {
+                FindObjectOfType<ModeUI>().selectedIcons[i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) /*&& Time.timeScale != 0.05f*/ && FindObjectOfType<PauseMenu>().paused == false)
+        /*
+        if (Input.GetKeyDown(KeyCode.Tab) && FindObjectOfType<PauseMenu>().paused == false)
         {
             // Time.timeScale = 0.05f;
             uiSelect.GetComponent<ModeUI>().canSwap = true;
             uiAnim.SetBool("isOn", true);
 
-        } else if(Input.GetKeyUp(KeyCode.Tab) /*&& Time.timeScale == 0.05f*/ && FindObjectOfType<PauseMenu>().paused == false)
+        } else if(Input.GetKeyUp(KeyCode.Tab)  && FindObjectOfType<PauseMenu>().paused == false)
         {
             Time.timeScale = 1f;
             uiAnim.SetBool("isOn", false);
@@ -55,6 +121,7 @@ public class modeSelector : MonoBehaviour
         {
             //Time.timeScale = 1f;
         }
+        */
     }
 
     public void combatMode(int number)

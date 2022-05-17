@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class follower : MonoBehaviour
 {
@@ -23,14 +24,26 @@ public class follower : MonoBehaviour
 
         // Shooting:
 
-        if (timer > coolDownTime && Input.GetKeyDown(KeyCode.Mouse0) && FindObjectOfType<floatingOrb>().enemyClose && FindObjectOfType<energyController>().energy > 0)
+        /*if (timer > coolDownTime && Input.GetKeyDown(KeyCode.Mouse0) && FindObjectOfType<floatingOrb>().enemyClose && FindObjectOfType<energyController>().energy > 0)
         {
             FindObjectOfType<energyController>().reduceEnergy(0.5f);
             GameObject prefab = Instantiate(shot, this.transform.position, this.transform.rotation);
             timer = 0;
         }
+        */
 
         timer += Time.deltaTime;
     }
+
+    public void shoot(InputAction.CallbackContext context)
+    {
+        if (timer > coolDownTime && context.started && FindObjectOfType<floatingOrb>().enemyClose && FindObjectOfType<energyController>().energy > 0 && FindObjectOfType<floatingOrb>().enabled)
+        {
+            FindObjectOfType<energyController>().reduceEnergy(0.5f);
+            GameObject prefab = Instantiate(shot, this.transform.position, this.transform.rotation);
+            timer = 0;
+        }
+    }
+
 } 
 

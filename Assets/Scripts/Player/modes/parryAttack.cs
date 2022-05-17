@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class parryAttack : MonoBehaviour
 {
@@ -34,12 +35,12 @@ public class parryAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize);
     }
-    
-    void Update()
+
+    public void hit(InputAction.CallbackContext context)
     {
         Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, enemyLayer);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && cooldown == false)
+        if (GetComponent<parryAttack>().enabled == true && context.started && cooldown == false)
         {
             hitAnim.SetActive(true);
             cooldown = true;
@@ -50,16 +51,10 @@ public class parryAttack : MonoBehaviour
 
             foreach (Collider2D fiend in enemyColliders)
             {
-                // Hits enemies
-                if(fiend.GetComponent<EnemyDamageTaken>() != null && fiend.isTrigger)
-                {
-                    // Checks that there isn't a wall between
-                    /*Vector3 direction = (fiend.transform.position - transform.position).normalized;
-                    RaycastHit hit;
-                    if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, floorLayer))
-                    {
-                        Debug.Log("Did Hit");*/
 
+                // Hits enemies
+                if (fiend.GetComponent<EnemyDamageTaken>() != null && fiend.isTrigger)
+                {
                     fiend.GetComponent<EnemyDamageTaken>().recieveDamage(1);
                     // print(fiend.gameObject.name);
                     var prefab = Instantiate(soul, fiend.transform.position, fiend.transform.rotation);
@@ -75,8 +70,67 @@ public class parryAttack : MonoBehaviour
                 }
             }
 
-        // Hits object that you can destroy
-        Collider2D[] itemColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, itemLayer);
+            // Hits object that you can destroy
+            Collider2D[] itemColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, itemLayer);
+            foreach (Collider2D items in itemColliders)
+            {
+                if (items.GetComponent<Destroyable>() != null)
+                {
+                    items.GetComponent<Destroyable>().destroyObject();
+                }
+            }
+
+            // flips the animations thingy
+
+            if (this.GetComponent<character>().looking == 1)
+            {
+                hitAnim.GetComponent<SpriteRenderer>().flipX = false;
+                hitAnim.transform.localPosition = new Vector3(0.87f, 0.18f, 0);
+            }
+            else
+            {
+                hitAnim.GetComponent<SpriteRenderer>().flipX = true;
+                hitAnim.transform.localPosition = new Vector3(-0.87f, 0.18f, 0);
+            }
+        }
+    }
+
+    void Update()
+    {
+        /*
+        Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, enemyLayer);
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0) && cooldown == false)
+        {
+            hitAnim.SetActive(true);
+            cooldown = true;
+            shield.SetActive(true);
+            Invoke("closeShield", upTime);
+            Invoke("endCool", coolDown);
+            Invoke("disableAnim", 0.32f);
+
+            foreach (Collider2D fiend in enemyColliders)
+            {
+                // Hits enemies
+                if(fiend.GetComponent<EnemyDamageTaken>() != null && fiend.isTrigger)
+                {
+                    fiend.GetComponent<EnemyDamageTaken>().recieveDamage(1);
+                    // print(fiend.gameObject.name);
+                    var prefab = Instantiate(soul, fiend.transform.position, fiend.transform.rotation);
+                    // FindObjectOfType<energyController>().recieveEnergy();
+                    if (this.transform.position.x < fiend.transform.position.x)
+                    {
+                        fiend.GetComponent<EnemyDamageTaken>().hDir = 1;
+                    }
+                    else if (this.transform.position.x > fiend.transform.position.x)
+                    {
+                        fiend.GetComponent<EnemyDamageTaken>().hDir = -1;
+                    }
+                }
+            }
+
+            // Hits object that you can destroy
+            Collider2D[] itemColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, itemLayer);
             foreach (Collider2D items in itemColliders)
             {
                 if (items.GetComponent<Destroyable>() != null)
@@ -98,6 +152,8 @@ public class parryAttack : MonoBehaviour
             }
 
         }
+
+        */
 
         if(this.transform.GetComponent<character>().looking == -1)
         {

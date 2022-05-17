@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class dashMove : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class dashMove : MonoBehaviour
     public Animator dashAnim;
     public bool isDashing = false;
 
+    private bool toDash = false;
+
 
     private void Awake()
     {
@@ -35,6 +38,14 @@ public class dashMove : MonoBehaviour
     {
         timer = coolDownTime;
         dashTime = startDashTime;
+    }
+
+    public void dash(InputAction.CallbackContext context)
+    {
+        if (context.started && timer > coolDownTime && GetComponent<character>().isSitting == false)
+        {
+            toDash = true;
+        }
     }
 
     void Update()
@@ -57,9 +68,11 @@ public class dashMove : MonoBehaviour
 
         if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.F) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false && !FindObjectOfType<character>().isSitting || Input.GetKeyDown(KeyCode.LeftShift) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false && !FindObjectOfType<character>().isSitting)
+            // if (Input.GetKeyDown(KeyCode.F) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false && !FindObjectOfType<character>().isSitting || Input.GetKeyDown(KeyCode.LeftShift) && canDash && timer > coolDownTime && FindObjectOfType<PauseMenu>().paused == false && !FindObjectOfType<character>().isSitting)
+            if(timer > coolDownTime && toDash == true)
             {
                 // start Dash
+                toDash = false;
                 var prefab = Instantiate(dashParticle, this.transform.position, Quaternion.identity);
                 Destroy(prefab, 1f);
                 direction = 1;
@@ -80,14 +93,16 @@ public class dashMove : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 guardianAnim.SetBool("isDashing", false);
                 isDashing = false;
+                toDash = false;
             } else
             {
-                // During dash?
                 dashTime -= Time.deltaTime;
             }
             if (direction == 1)
             {
+                // During dash?
                 rb.velocity = Vector2.right * dashSpeed * playerLooking;
+                toDash = false;
             }
         }
 
@@ -96,8 +111,6 @@ public class dashMove : MonoBehaviour
         // calculate time left
 
         dashMeter.material.SetFloat("_Health", timer / coolDownTime);
-
-
 
     }
 

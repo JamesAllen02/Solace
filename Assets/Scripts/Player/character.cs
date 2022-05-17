@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class character : MonoBehaviour
 {
@@ -77,6 +78,7 @@ public class character : MonoBehaviour
         }
 
         // Jumping
+        /*
         if (!shockShieldOn && grounded && !isSitting)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -85,7 +87,7 @@ public class character : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, m_JumpForce);
             }
         }
-
+        */
         // Moving left
         if (!onWall && FindObjectOfType<dashMove>().isDashing == false && !isSitting)
         {
@@ -129,6 +131,17 @@ public class character : MonoBehaviour
             startHeight = 10000;
         }
 
+    }
+
+    public void jump(InputAction.CallbackContext context)
+    {
+        //print("jump");
+        // Jumping
+        if (context.performed && !shockShieldOn && grounded && !isSitting)
+        {
+            startHeight = this.transform.position.y;
+            rb.velocity = new Vector2(rb.velocity.x, m_JumpForce);
+        }
     }
 
     IEnumerator waitWall()

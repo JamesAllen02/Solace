@@ -92,6 +92,8 @@ public class damagePlayer : MonoBehaviour
             isMortal = false;
             Invoke("becomeMortal", 1f);
             FindObjectOfType<CameraScript>().gotHit();
+            FindObjectOfType<modeSelector>().uiAnim.SetBool("isOn", false);
+            FindObjectOfType<modeSelector>().wheelUp = false;
 
             Time.timeScale = 0.2f;
             Invoke("fixTime", 0.2f/5f);

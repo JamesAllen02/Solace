@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraScript : MonoBehaviour
 {
@@ -10,17 +11,30 @@ public class CameraScript : MonoBehaviour
     private bool groundCheck = true;
 
     public Animator camAnim;
+    private bool keyDown = false;
 
     void Start()
     {
         height = 2.001f;
     }
 
+    public void lookDown(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            keyDown = true;
+        }
+        if (context.canceled)
+        {
+            keyDown = false;
+        }
+    }
+
 
     void Update()
     {
         // Looking down
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        if (keyDown)
         {
             if(height >= -2)
             {

@@ -18,7 +18,7 @@ public class clickDialogue : MonoBehaviour
         {
             hasTriggered = false;
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.E) && isWithin && !FindObjectOfType<DialogueManager>().isUp)
         {
             dialogueSymbol.SetActive(false);
@@ -30,7 +30,23 @@ public class clickDialogue : MonoBehaviour
         {
             FindObjectOfType<DialogueManager>().DisplayNextSentence();
         }
-        
+        */
+    }
+
+    public void startDialogue()
+    {
+        if (isWithin && !FindObjectOfType<DialogueManager>().isUp)
+        {
+            dialogueSymbol.SetActive(false);
+            TriggerDialogue();
+            //this.gameObject.SetActive(false);
+            isWithin = false;
+            hasTriggered = true;
+        }
+        else if (hasTriggered && FindObjectOfType<DialogueManager>().isUp)
+        {
+            FindObjectOfType<DialogueManager>().DisplayNextSentence();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -13,7 +13,7 @@ public class checkpoint : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if (checkDialogue.isClose && Input.GetKeyDown(KeyCode.E))
         {
@@ -25,6 +25,20 @@ public class checkpoint : MonoBehaviour
         {
             FindObjectOfType<character>().transform.GetChild(0).GetComponent<Animator>().SetBool("sitting", false);
         }
-        
+    }*/
+
+    public void sitDown()
+    {
+        if (checkDialogue.isClose)
+        {
+            FindObjectOfType<damagePlayer>().hp = FindObjectOfType<damagePlayer>().maxHp;
+            FindObjectOfType<energyController>().energy = FindObjectOfType<energyController>().maxEnergy;
+            FindObjectOfType<character>().transform.GetChild(0).GetComponent<Animator>().SetBool("sitting", true);
+        }
+        if (!FindObjectOfType<DialogueManager>().isUp)
+        {
+            FindObjectOfType<character>().transform.GetChild(0).GetComponent<Animator>().SetBool("sitting", false);
+        }
     }
+
 }
