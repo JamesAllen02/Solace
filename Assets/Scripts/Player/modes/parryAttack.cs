@@ -11,7 +11,7 @@ public class parryAttack : MonoBehaviour
     [SerializeField] private float cdTime = 0.5f;
     [SerializeField] private float upTime = 0.5f;
     private float coolDown;
-    private bool cooldown = false;
+    private bool cooldownActive = false;
 
     public Vector2 attackArea = new Vector2(0.6f, -0.15f);
     public float attackSize;
@@ -40,10 +40,10 @@ public class parryAttack : MonoBehaviour
     {
         Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, enemyLayer);
 
-        if (GetComponent<parryAttack>().enabled == true && context.started && cooldown == false)
+        if (GetComponent<parryAttack>().enabled == true && context.started && cooldownActive == false)
         {
             hitAnim.SetActive(true);
-            cooldown = true;
+            cooldownActive = true;
             shield.SetActive(true);
             Invoke("closeShield", upTime);
             Invoke("endCool", coolDown);
@@ -174,7 +174,7 @@ public class parryAttack : MonoBehaviour
 
     public void endCool()
     {
-        cooldown = false;
+        cooldownActive = false;
     }
 
     public void disableAnim()
