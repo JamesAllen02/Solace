@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ashesOfIvory.unity
     guid: 565e1cdf815141e4dbe9f9529c45e1fe
   - enabled: 1
-    path: Assets/Scenes/Examples/Level 2 example.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Cave of Despair.unity
+    guid: cab028f6ce472b542af22134d8fca6da
   - enabled: 1
     path: Assets/Scenes/Examples/Level 3 example.unity
     guid: 66f472ba7c38ac940abb8fe8fbc6e252

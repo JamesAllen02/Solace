@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class damagePlayer : MonoBehaviour
@@ -16,6 +17,7 @@ public class damagePlayer : MonoBehaviour
     public bool isDead = false;
     public bool isMortal = true;
     public bool shieldOn = false;
+    private bool enterIn = false;
 
     public healthBar hpBar;
     private dashMove dashScript;
@@ -33,6 +35,18 @@ public class damagePlayer : MonoBehaviour
         maxHp = hp;
         rb = this.GetComponent<Rigidbody2D>();
         dashScript = FindObjectOfType<dashMove>();
+    }
+
+    public void enterDown(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            enterIn = true;
+        }
+        if (context.canceled)
+        {
+            enterIn = false;
+        }
     }
 
     // Update is called once per frame
@@ -68,7 +82,7 @@ public class damagePlayer : MonoBehaviour
         // Prototype text that we don't use
         text.text = "HP: " + hp + "/" + maxHp;
 
-        if (isDead && Input.GetKeyDown(KeyCode.Return))
+        if (isDead && enterIn)
         {
             Destroy(FindObjectOfType<dontDestroy>().gameObject);
             SceneManager.LoadScene(1);

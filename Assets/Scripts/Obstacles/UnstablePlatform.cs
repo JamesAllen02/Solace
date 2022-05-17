@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class UnstablePlatform : MonoBehaviour
 {
-    public float triggerDelay;
-    public float selfDestroyDelay;
+    [SerializeField] private float triggerDelay = 1;
+    [SerializeField] private float diffLayerDelay = 0.3f;
+    [SerializeField] private float selfDestroyDelay = 1.2f;
 
     private Animator _animator;
 
@@ -34,6 +35,7 @@ public class UnstablePlatform : MonoBehaviour
     {
         yield return new WaitForSeconds(triggerDelay);
         _animator.SetTrigger("destroy");
+        yield return new WaitForSeconds(diffLayerDelay);
         gameObject.layer = LayerMask.NameToLayer("Enemy death layer");
         yield return new WaitForSeconds(selfDestroyDelay);
         Destroy(gameObject);

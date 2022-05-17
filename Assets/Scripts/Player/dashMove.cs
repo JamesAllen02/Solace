@@ -42,7 +42,7 @@ public class dashMove : MonoBehaviour
 
     public void dash(InputAction.CallbackContext context)
     {
-        if (context.started && timer > coolDownTime && GetComponent<character>().isSitting == false)
+        if (context.started && timer > coolDownTime && GetComponent<character>().isSitting == false && GetComponent<shockShield>().shieldOn == false)
         {
             toDash = true;
         }

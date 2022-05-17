@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1909770627
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -458641133534639524, guid: fe815994e5ebc3c41a88fc214cce2db4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -110,14 +110,17 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 0}
   onGround: 1
+  onGround2: 1
   jumpLength: {x: 4, y: 5.5}
   initJump: {x: -6, y: 4}
   jumpTimer: {x: 1.5, y: 1}
-  groundedHeight: 0.33
+  groundedHeight: {x: 0.2, y: 0.23}
+  groundedHeight2: {x: -0.2, y: 0.23}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  heightOffset: -0.08
+  heightOffset: -0.29
+  heightOffset2: -0.29
 --- !u!50 &3651609094011854003
 Rigidbody2D:
   serializedVersion: 4
@@ -312,8 +315,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1909770627
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -458641133534639524, guid: fe815994e5ebc3c41a88fc214cce2db4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -347,14 +350,17 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 0}
   onGround: 1
+  onGround2: 1
   jumpLength: {x: 4, y: 5.5}
   initJump: {x: 6, y: 4}
   jumpTimer: {x: 1.5, y: 1}
-  groundedHeight: 0.33
+  groundedHeight: {x: 0.2, y: 0.23}
+  groundedHeight2: {x: -0.2, y: 0.23}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  heightOffset: -0.08
+  heightOffset: -0.29
+  heightOffset2: -0.29
 --- !u!50 &3651609094238204343
 Rigidbody2D:
   serializedVersion: 4
@@ -583,8 +589,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1909770627
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -458641133534639524, guid: fe815994e5ebc3c41a88fc214cce2db4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -618,14 +624,17 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 0}
   onGround: 1
+  onGround2: 1
   jumpLength: {x: 4, y: 5.5}
   initJump: {x: 12, y: 8}
   jumpTimer: {x: 2, y: 1}
-  groundedHeight: 0.33
+  groundedHeight: {x: 0.2, y: 0.23}
+  groundedHeight2: {x: -0.2, y: 0.23}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  heightOffset: -0.08
+  heightOffset: -0.29
+  heightOffset2: -0.29
 --- !u!50 &3651609094701594018
 Rigidbody2D:
   serializedVersion: 4
@@ -820,8 +829,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1909770627
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -458641133534639524, guid: fe815994e5ebc3c41a88fc214cce2db4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -855,14 +864,17 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 0}
   onGround: 1
+  onGround2: 1
   jumpLength: {x: 4, y: 5.5}
   initJump: {x: -12, y: 8}
   jumpTimer: {x: 2, y: 1}
-  groundedHeight: 0.33
+  groundedHeight: {x: 0.2, y: 0.23}
+  groundedHeight2: {x: -0.2, y: 0.23}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  heightOffset: -0.08
+  heightOffset: -0.29
+  heightOffset2: -0.29
 --- !u!50 &3651609095119469699
 Rigidbody2D:
   serializedVersion: 4

@@ -21,13 +21,16 @@ public class slimeEnemy : MonoBehaviour
     [SerializeField] private Animator anim;
     private Rigidbody2D rb;
     public bool onGround = true;
+    public bool onGround2 = true;
     [SerializeField] private Vector2 jumpLength = new Vector2(4, 4);
     [SerializeField] private Vector2 initJump = new Vector2(4, 4);
     [SerializeField] private Vector2 jumpTimer = new Vector2(1, 1);
 
-    public float groundedHeight = 0.51f;
+    public Vector2 groundedHeight = new Vector2(0,0.51f);
+    public Vector2 groundedHeight2 = new Vector2(0, 0.51f);
     public LayerMask groundLayer;
     public float heightOffset = 0.25f;
+    public float heightOffset2 = 0.25f;
     private bool groundCheck = true;
 
 
@@ -44,7 +47,8 @@ public class slimeEnemy : MonoBehaviour
 
     void Update()
     {
-        onGround = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + heightOffset), groundedHeight, groundLayer);
+        onGround = Physics2D.OverlapCircle(new Vector2(transform.position.x + groundedHeight.x, transform.position.y + heightOffset), groundedHeight.y, groundLayer);
+        onGround2 = Physics2D.OverlapCircle(new Vector2(transform.position.x + groundedHeight2.x, transform.position.y + heightOffset2), groundedHeight2.y, groundLayer);
         this.transform.localScale = new Vector3(cDir, 1, 1);
 
         // State machine
@@ -67,13 +71,13 @@ public class slimeEnemy : MonoBehaviour
         }
 
         // Landing animation logic
-        if (onGround == true && groundCheck == true)
+        if (onGround == true && groundCheck == true || onGround2 && groundCheck == true)
         {
             // print("just landed");
             anim.SetBool("Down", true);
             groundCheck = false;
         }
-        if (onGround == false)
+        if (onGround == false || onGround2 == false)
         {
             anim.SetBool("Down", false);
             groundCheck = true;
@@ -113,7 +117,7 @@ public class slimeEnemy : MonoBehaviour
 
     void keepJumping()
     {
-        if(onGround == true)
+        if(onGround == true || onGround2 == true)
         {
             moveEnemy();
         }
@@ -180,7 +184,8 @@ public class slimeEnemy : MonoBehaviour
         Gizmos.DrawWireCube(new Vector3(positions.x + transform.position.x, this.transform.position.y, 0), new Vector3(1, 1, 1));
         Gizmos.DrawWireCube(new Vector3(positions.y + transform.position.x, this.transform.position.y, 0), new Vector3(1, 1, 1));
         Gizmos.DrawWireSphere(transform.position, checkDistance);
-        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z), groundedHeight);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x + groundedHeight.x, transform.position.y + heightOffset, transform.position.z), groundedHeight.y);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x + groundedHeight2.x, transform.position.y + heightOffset2, transform.position.z), groundedHeight2.y);
     }
 
 }

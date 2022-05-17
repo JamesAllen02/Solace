@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.transform.name == "player")
@@ -42,4 +42,5 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+    */
 }

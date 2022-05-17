@@ -22,6 +22,10 @@ public class parallay : MonoBehaviour
 
     void Update()
     {
+        if (cam == null)
+        {
+            cam = Camera.main.gameObject;
+        }
         float temp = (cam.transform.position.y * (1 - parallaxEffect));
 
         float dist = (cam.transform.position.y * parallaxEffect);

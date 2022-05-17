@@ -16,13 +16,22 @@ public class shockShield : MonoBehaviour
     private SpriteRenderer sr;
     public bool shieldOn = false;
 
-    
+    [SerializeField] private Animator blastAnim;
+    private bool cooldown = false;
+    [SerializeField] private float cdTime = 0.5f;
+
+
 
     private void Awake()
     {
         cc = shieldCircle.GetComponent<CircleCollider2D>();
         sr = shieldCircle.GetComponent<SpriteRenderer>();
 
+
+    }
+
+    private void Start()
+    {
         InvokeRepeating("reduceEnergy", 1, 1);
 
     }
@@ -32,8 +41,11 @@ public class shockShield : MonoBehaviour
         if (context.started && GetComponent<shockShield>().enabled == true)
         {
 
-            if (FindObjectOfType<energyController>().energy >= 3)
+            if (FindObjectOfType<energyController>().energy >= 3 && cooldown == false)
             {
+                blastAnim.SetTrigger("blast");
+                cooldown = true;
+                Invoke("endCool", cdTime);
                 // Checks for nearby enemies
                 Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), circleDistance, enemyLayer);
                 if (enemyColliders.Length > 0)
@@ -75,14 +87,12 @@ public class shockShield : MonoBehaviour
             {
                 // FindObjectOfType<damagePlayer>().shieldOn = false;
                 shieldOn = true;
-                this.GetComponent<dashMove>().enabled = false;
                 FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed / 2;
             }
             else if (shieldOn == true)
             {
                 // FindObjectOfType<damagePlayer>().isMortal = true;
                 shieldOn = false;
-                this.GetComponent<dashMove>().enabled = true;
                 FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed;
             }
         }
@@ -115,6 +125,7 @@ public class shockShield : MonoBehaviour
             cc.enabled = false;
             sr.enabled = false;
             shieldOn = false;
+            FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed;
             // FindObjectOfType<damagePlayer>().isMortal = true;
         }
 
@@ -165,6 +176,11 @@ public class shockShield : MonoBehaviour
         {
             FindObjectOfType<energyController>().reduceEnergy(0.5f);
         }
+    }
+
+    private void endCool()
+    {
+        cooldown = false;
     }
 
 }

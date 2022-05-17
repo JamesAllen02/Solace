@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1909770627
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 368543389579951487, guid: fe815994e5ebc3c41a88fc214cce2db4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -110,14 +110,17 @@ MonoBehaviour:
   enemyBehaviour: 1
   anim: {fileID: 1954702694600643112}
   onGround: 1
+  onGround2: 1
   jumpLength: {x: 4, y: 8}
   initJump: {x: 0, y: 0}
   jumpTimer: {x: 1, y: 1}
-  groundedHeight: 0.75
+  groundedHeight: {x: -0.35, y: 0.63}
+  groundedHeight2: {x: 0.35, y: 0.63}
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  heightOffset: -0.09
+  heightOffset: -0.3
+  heightOffset2: -0.3
 --- !u!50 &1954702694600643125
 Rigidbody2D:
   serializedVersion: 4
