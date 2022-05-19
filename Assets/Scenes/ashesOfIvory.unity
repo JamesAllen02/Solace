@@ -25895,7 +25895,7 @@ MonoBehaviour:
   - {fileID: 408115664}
   closestPos: {fileID: 0}
   canSwap: 0
-  currentAbilities: 2
+  currentAbilities: 1
 --- !u!4 &3205393681148902990
 Transform:
   m_ObjectHideFlags: 0
