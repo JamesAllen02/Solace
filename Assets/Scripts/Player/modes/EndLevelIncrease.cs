@@ -25,6 +25,7 @@ public class EndLevelIncrease : MonoBehaviour
 
     IEnumerator delayNextLevel()
     {
+        fade = FindObjectOfType<thisIsSoICanFindIt>().gameObject.GetComponent<Animator>();
         fade.SetTrigger("fade");
         // Animate screen dark
         yield return new WaitForSeconds(1f);

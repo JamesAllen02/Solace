@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Cave of Despair.unity
     guid: cab028f6ce472b542af22134d8fca6da
   - enabled: 1
-    path: Assets/Scenes/Examples/Level 3 example.unity
-    guid: 66f472ba7c38ac940abb8fe8fbc6e252
+    path: Assets/Scenes/Pale City of Lost.unity
+    guid: e0e7b751933e5a94cbefaf852e806646
   - enabled: 1
-    path: Assets/Scenes/Examples/Level 4 example.unity
-    guid: 2885803a973d876428c41ab6ae135262
+    path: Assets/Scenes/Castle of Corruiption.unity
+    guid: 8d39184abe7077d4c9e046b8b14dcaed
   m_configObjects: {}

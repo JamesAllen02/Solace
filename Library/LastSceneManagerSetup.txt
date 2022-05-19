@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ashesOfIvory.unity
+- path: Assets/Scenes/Castle of Corruiption.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
