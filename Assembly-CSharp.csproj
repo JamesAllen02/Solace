@@ -172,6 +172,7 @@
     <Compile Include="Assets\AllIn1VfxToolkit\Scripts\All1VfxRandomTimeSeed.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\AllIn1VfxToolkit\Scripts\AllIn1VfxNoiseCreator.cs" />
+    <Compile Include="Assets\Scripts\UI\thisIsSoICanFindIt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
