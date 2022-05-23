@@ -42,16 +42,18 @@ public class parryAttack : MonoBehaviour
 
         if (GetComponent<parryAttack>().enabled == true && context.started && cooldownActive == false)
         {
-            hitAnim.SetActive(true);
+            hitAnim.GetComponent<Animator>().SetTrigger("hit");
+            hitAnim.GetComponent<AudioSource>().Play();
             cooldownActive = true;
             shield.SetActive(true);
             Invoke("closeShield", upTime);
             Invoke("endCool", coolDown);
-            Invoke("disableAnim", 0.32f);
+
+            bool enemyFound = false;
 
             foreach (Collider2D fiend in enemyColliders)
             {
-
+                enemyFound = true;
                 // Hits enemies
                 if (fiend.GetComponent<EnemyDamageTaken>() != null && fiend.isTrigger)
                 {
@@ -74,10 +76,16 @@ public class parryAttack : MonoBehaviour
             Collider2D[] itemColliders = Physics2D.OverlapCircleAll(new Vector2(this.transform.position.x, this.transform.position.y) + attackArea, attackSize, itemLayer);
             foreach (Collider2D items in itemColliders)
             {
+                enemyFound = true;
                 if (items.GetComponent<Destroyable>() != null)
                 {
                     items.GetComponent<Destroyable>().destroyObject();
                 }
+            }
+
+            if (enemyFound)
+            {
+                FindObjectOfType<CameraScript>().dealDamage();
             }
 
             // flips the animations thingy
@@ -175,10 +183,5 @@ public class parryAttack : MonoBehaviour
     public void endCool()
     {
         cooldownActive = false;
-    }
-
-    public void disableAnim()
-    {
-        hitAnim.SetActive(false);
     }
 }

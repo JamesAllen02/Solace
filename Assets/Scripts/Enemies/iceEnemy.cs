@@ -12,13 +12,19 @@ public class iceEnemy : MonoBehaviour
     private int direction = 1;
 
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float checkDistance = 5;
+    [SerializeField] private float throwDistance = 3;
     private Transform player;
     private bool playerClose = false;
+    private bool isShooting = false;
+    
 
     public int enemyBehaviour = 1;
 
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject icicle;
+    [SerializeField] private Transform icicleLocation;
 
 
     void Start()
@@ -29,6 +35,37 @@ public class iceEnemy : MonoBehaviour
 
     void Update()
     {
+        // Checks for player inside area
+        Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), checkDistance, playerLayer);
+        if (enemyColliders.Length > 0)
+        {
+            playerClose = true;
+            player = enemyColliders[0].transform;
+
+            // Creates a raycast to check if player is in enemy sight
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * -cDir, checkDistance, playerLayer);
+            if (hit.collider != null)
+            {
+                // If the player is close enough, it swaps to attacking. If not, it shoots.
+                Collider2D[] playerCloseCollider = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), throwDistance, playerLayer);
+                if (playerCloseCollider.Length > 0)
+                {
+                    // attack
+                    enemyBehaviour = 2;
+                }
+                else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("iceClownThrow"))
+                {
+                    // Shoots
+                    enemyBehaviour = 3;
+                }
+            }
+        }
+        else if (!anim.GetCurrentAnimatorStateInfo(0).IsName("iceClownThrow"))
+        {
+            playerClose = false;
+            enemyBehaviour = 1;
+        }
+
         this.transform.localScale = new Vector3(cDir, 1, 1);
         switch (enemyBehaviour)
         {
@@ -40,12 +77,29 @@ public class iceEnemy : MonoBehaviour
                 break;
             case 3:
                 // Shoot player
+                StartCoroutine(shoot());
                 break;
             case 4:
                 // 
                 break;
             default:
                 break;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // Check if it's walkin' on air
+        Debug.DrawRay(this.transform.position + new Vector3(-cDir, 0, 0), Vector2.up * -1, Color.red);
+        RaycastHit2D checkFloorLeft = Physics2D.Raycast(this.transform.position + new Vector3(-cDir, 0, 0), -Vector2.up, groundLayer);
+        if (checkFloorLeft.collider != null)
+        {
+            //print(checkFloorLeft);
+
+        }
+        else if (checkFloorLeft.collider == null)
+        {
+            //print("nothing here!");
         }
     }
 
@@ -89,6 +143,7 @@ public class iceEnemy : MonoBehaviour
     // Simple function that moves it in a direction.
     void moveEnemy(float targetPos)
     {
+        anim.SetBool("idle", false);
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPos, transform.position.y, 0), Time.deltaTime * moveSpeed);
     }
 
@@ -124,31 +179,31 @@ public class iceEnemy : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private IEnumerator shoot()
     {
-        // Checks for player inside area
-        Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), checkDistance, playerLayer);
-        if (enemyColliders.Length > 0)
+        if (player.transform.position.x > transform.position.x)
         {
-            playerClose = true;
-            player = enemyColliders[0].transform;
-
-            // Creates a raycast to check if player is in enemy sight
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * -cDir, checkDistance, playerLayer);
-            if (hit.collider != null)
-            {
-                // Attacks
-                enemyBehaviour = 2;
-            }
+            cDir = -1;
         }
-        else
+        else if (player.transform.position.x < transform.position.x)
         {
-            playerClose = false;
-            enemyBehaviour = 1;
+            cDir = 1;
+        }
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("iceClownThrow") && !isShooting)
+        {
+            isShooting = true;
+            anim.SetTrigger("throw");
+            // print("threw");
+            yield return new WaitForSeconds(0.42f);
+            var prefab = Instantiate(icicle, icicleLocation.position, transform.rotation);
+            prefab.transform.localScale = new Vector2(-cDir, 1);
+            Destroy(prefab, 5f);
+            anim.SetBool("idle", true);
+            yield return new WaitForSeconds(0.6f);
+            anim.SetBool("idle", false);
+            isShooting = false;
         }
     }
-
-
 
     void OnDrawGizmosSelected()
     {

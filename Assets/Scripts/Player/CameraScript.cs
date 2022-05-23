@@ -69,4 +69,9 @@ public class CameraScript : MonoBehaviour
         camAnim.SetTrigger("hitShake");
     }
 
+    public void dealDamage()
+    {
+        camAnim.SetTrigger("dealDmg");
+    }
+
 }
