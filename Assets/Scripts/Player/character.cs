@@ -110,7 +110,7 @@ public class character : MonoBehaviour
         if (onWall)
         {
 
-            playerAnim.SetBool("onWall", true);
+            //playerAnim.SetBool("onWall", true);
 
             //rb.velocity = new Vector2(rb.velocity.x, 0);
 
@@ -127,7 +127,7 @@ public class character : MonoBehaviour
 
         if (this.transform.position.y > startHeight + jumpHeight)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
+            //rb.velocity = new Vector2(rb.velocity.x, 0);
             startHeight = 10000;
         }
 

@@ -34,6 +34,14 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void returnMenu()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+        Destroy(this.gameObject);
+    }
+
     /*
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
     public bool paused = false;
+    [SerializeField] private GameObject pauseMenu;
 
     public void pause(InputAction.CallbackContext context)
     {
@@ -18,6 +19,17 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1;
             paused = false;
         }
+    }
+
+    public void continueButton()
+    {
+        Time.timeScale = 1;
+        paused = false;
+    }
+
+    private void Update()
+    {
+        pauseMenu.SetActive(paused);
     }
 
     /*

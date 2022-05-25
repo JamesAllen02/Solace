@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.DualShock;
+using UnityEngine.InputSystem.Switch;
 
 public class modeSelector : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class modeSelector : MonoBehaviour
     public bool wheelUp = false;
     public bool psDpadWheel = false;
 
+    private DualShockGamepad gamepad;
+
     private void Start()
     {
         ab1 = this.transform.GetComponent<floatingOrb>();
@@ -45,7 +48,8 @@ public class modeSelector : MonoBehaviour
             uiSelect.GetComponent<ModeUI>().canSwap = true;
             uiAnim.SetBool("isOn", true);
             wheelUp = true;
-        } else if (context.canceled && FindObjectOfType<PauseMenu>().paused == false)
+        }
+        else if (context.canceled && FindObjectOfType<PauseMenu>().paused == false)
         {
             wheelUp = false;
             Time.timeScale = 1f;
@@ -58,37 +62,54 @@ public class modeSelector : MonoBehaviour
         if (context.started && wheelUp)
         {
             psDpadWheel = true;
-            var gamepad = (DualShockGamepad)Gamepad.all[0];
+            // print(Gamepad.current.name);
+            if (Gamepad.current.name == "DualShock4GamepadHID")
+            {
+                gamepad = (DualShockGamepad)Gamepad.all[0];
+            }
             var value = context.ReadValue<Vector2>();
             if (value.y == 1 && FindObjectOfType<ModeUI>().currentAbilities >= 3)
             {
                 // print("top");
                 combatMode(3);
-                gamepad.SetLightBarColor(Color.yellow);
+                if (gamepad != null)
+                {
+                    gamepad.SetLightBarColor(Color.yellow);
+                }
                 FindObjectOfType<ModeUI>().selectedIcons[2].gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
             else if (value.x == 1 && FindObjectOfType<ModeUI>().currentAbilities >= 1)
             {
                 // print("right");
                 combatMode(1);
-                gamepad.SetLightBarColor(Color.blue);
+                if (gamepad != null)
+                {
+                    gamepad.SetLightBarColor(Color.blue);
+                }
                 FindObjectOfType<ModeUI>().selectedIcons[0].gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
             else if (value.y == -1 && FindObjectOfType<ModeUI>().currentAbilities >= 2)
             {
                 // print("bottom");
                 combatMode(2);
-                gamepad.SetLightBarColor(Color.magenta);
+                if (gamepad != null)
+                {
+                    gamepad.SetLightBarColor(Color.magenta);
+                }
                 FindObjectOfType<ModeUI>().selectedIcons[1].gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
             else if (value.x == -1 && FindObjectOfType<ModeUI>().currentAbilities >= 4)
             {
                 // print("left");
                 combatMode(4);
-                gamepad.SetLightBarColor(Color.red);
+                if (gamepad != null)
+                {
+                    gamepad.SetLightBarColor(Color.red);
+                }
                 FindObjectOfType<ModeUI>().selectedIcons[3].gameObject.GetComponent<SpriteRenderer>().enabled = true;
             }
-        } else if (context.canceled)
+        }
+        else if (context.canceled)
         {
             psDpadWheel = false;
             for (int i = 0; i < 4; i++)
@@ -160,7 +181,8 @@ public class modeSelector : MonoBehaviour
         }
     }
 
-    public void replenish(){
+    public void replenish()
+    {
         FindObjectOfType<energyController>().recieveEnergy();
     }
 
