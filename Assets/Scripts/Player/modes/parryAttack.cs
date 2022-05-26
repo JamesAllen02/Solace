@@ -81,6 +81,14 @@ public class parryAttack : MonoBehaviour
                 {
                     items.GetComponent<Destroyable>().destroyObject();
                 }
+                // If it's a lever:
+                if(items.GetComponent<LiftLever>() != null)
+                {
+                    items.GetComponent<LiftLever>().trigger();
+                } else if(items.GetComponent<Lever>() != null)
+                {
+                    items.GetComponent<Lever>().trigger();
+                }
             }
 
             if (enemyFound)

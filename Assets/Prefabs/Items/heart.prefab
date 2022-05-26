@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1251458970795234578}
   - component: {fileID: 5434692225191189539}
   - component: {fileID: 8681402374958512117}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804537426352114792}
   - component: {fileID: 1486521003333724677}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
