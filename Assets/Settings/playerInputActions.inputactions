@@ -84,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "a1e0e2e7-5f69-47a0-bebf-8dfeb23d5c02",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -144,6 +152,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0a4ad43e-3d6e-457a-825e-1441c8e28262",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "df5385c4-d8be-4bad-8206-ba4afaa50604",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
@@ -188,6 +207,17 @@
                 },
                 {
                     "name": "",
+                    "id": "867ab6e4-1e2f-4df7-a36a-644744e1d500",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4cf07ea8-e5e8-4015-8db7-5cc6b2968432",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -221,6 +251,17 @@
                 },
                 {
                     "name": "",
+                    "id": "b4210212-0cd2-4de3-8b70-8e01b920f132",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Hit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9fdf4bc0-ed4c-4afe-92e9-03cbf9489aa1",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
@@ -248,6 +289,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "Wheel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9d0e4d7-ced9-4104-a13d-4fa3b162775d",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
                     "action": "Wheel",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -287,6 +339,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a70207cc-62a0-42fa-ad64-47e38cfbd087",
+                    "path": "<XInputController>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "WheelOptions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e4253b49-63db-4177-a9bd-d04baf50bdf1",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -314,6 +377,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Switch",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f4ee735-0718-4f98-b2fd-1ae021ba8a1f",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -353,6 +427,17 @@
                 },
                 {
                     "name": "",
+                    "id": "05659094-5b63-4f21-afd6-f5815598ca1e",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "S-Toggle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3f5594bd-5b69-45f8-bac6-19e6248a8a01",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -380,6 +465,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Switch",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba9aac36-ee53-44fb-837f-042c90a8d258",
+                    "path": "<XInputController>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -430,6 +526,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5a74e885-a4eb-4b31-915b-cb818b641566",
+                    "path": "<XInputController>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Look down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b295d249-7fdc-4d8f-a8bb-0c0d736c292c",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
@@ -458,6 +565,28 @@
                     "processors": "",
                     "groups": "Switch",
                     "action": "Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20ed3bd9-e2d3-4f4f-83c3-b471a827d21f",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4106efc-2726-4c50-8bfc-b4ae4dc19787",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -498,6 +627,17 @@
             "devices": [
                 {
                     "devicePath": "<SwitchProControllerHID>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Xbox",
+            "bindingGroup": "Xbox",
+            "devices": [
+                {
+                    "devicePath": "<XInputController>",
                     "isOptional": false,
                     "isOR": false
                 }

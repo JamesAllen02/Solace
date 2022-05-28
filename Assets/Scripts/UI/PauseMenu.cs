@@ -6,7 +6,9 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
     public bool paused = false;
+    public bool inventoryUp = false;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject inventoryMenu;
 
     public void pause(InputAction.CallbackContext context)
     {
@@ -14,10 +16,26 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 0;
             paused = true;
-        } else if(context.started && paused)
+            inventoryUp = false;
+        } else if(context.started && paused || context.started && inventoryUp)
         {
             Time.timeScale = 1;
             paused = false;
+        }
+    }
+
+    public void openInv(InputAction.CallbackContext context)
+    {
+        if (context.started && !inventoryUp)
+        {
+            Time.timeScale = 0;
+            inventoryUp = true;
+            paused = false;
+        }
+        else if (context.started && inventoryUp)
+        {
+            Time.timeScale = 1;
+            inventoryUp = false;
         }
     }
 
@@ -30,6 +48,7 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         pauseMenu.SetActive(paused);
+        inventoryMenu.SetActive(inventoryUp);
     }
 
     /*
