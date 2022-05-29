@@ -22,10 +22,7 @@ public class parallax : MonoBehaviour
     
     void Update()
     {
-        if (cam == null)
-        {
-            cam = Camera.main.gameObject;
-        }
+        cam = Camera.main.gameObject;
         float temp = (cam.transform.position.x * (1 - parallaxEffect));
 
         float dist = (cam.transform.position.x * parallaxEffect);

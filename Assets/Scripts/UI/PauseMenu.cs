@@ -43,6 +43,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         paused = false;
+        inventoryUp = false;
     }
 
     private void Update()

@@ -10,7 +10,7 @@ public class clickDialogue : MonoBehaviour
     public bool isClose = false;
 
     private bool isWithin = false;
-    private bool hasTriggered = false;
+    public bool hasTriggered = false;
 
     private void Update()
     {

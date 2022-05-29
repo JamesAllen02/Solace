@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main menu.unity
     guid: d16d7dc79525a74458d1a526163c01b9
   - enabled: 1
+    path: Assets/Scenes/spawnPlayer.unity
+    guid: d0a83940a969feb43a863e8d1acca94e
+  - enabled: 1
     path: Assets/Scenes/ashesOfIvory.unity
     guid: 565e1cdf815141e4dbe9f9529c45e1fe
   - enabled: 1

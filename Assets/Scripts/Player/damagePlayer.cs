@@ -82,15 +82,16 @@ public class damagePlayer : MonoBehaviour
         // Prototype text that we don't use
         text.text = "HP: " + hp + "/" + maxHp;
 
+        // Respawn
         if (isDead && enterIn)
         {
-            Destroy(FindObjectOfType<dontDestroy>().gameObject);
-            SceneManager.LoadScene(1);
-            /*GetComponent<energyController>().energy = GetComponent<energyController>().maxEnergy;
+            // Destroy(FindObjectOfType<dontDestroy>().gameObject);
+            SceneManager.LoadScene(FindObjectOfType<checkSaver>().lastCheckScene);
+            transform.position = FindObjectOfType<checkSaver>().lastCheckPoint;
+            GetComponent<energyController>().energy = GetComponent<energyController>().maxEnergy;
             hp = maxHp;
-            transform.position = lastCheckPos;
             deathAnim.SetBool("isDead", false);
-            FindObjectOfType<character>().enabled = true;*/
+            FindObjectOfType<character>().enabled = true;
             isDead = false;
         }
 
@@ -154,14 +155,17 @@ public class damagePlayer : MonoBehaviour
     {
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 14 || collision.gameObject.layer == 11 || collision.gameObject.layer == 19)
         {
-            recieveDamage();
-            if (this.transform.position.x <= collision.transform.position.x)
+            if (isMortal)
             {
-                rb.velocity = new Vector2(-6, 6);
-            }
-            else if (this.transform.position.x > collision.transform.position.x)
-            {
-                rb.velocity = new Vector2(6, 6);
+                recieveDamage();
+                if (this.transform.position.x <= collision.transform.position.x)
+                {
+                    rb.velocity = new Vector2(-6, 6);
+                }
+                else if (this.transform.position.x > collision.transform.position.x)
+                {
+                    rb.velocity = new Vector2(6, 6);
+                }
             }
         }
     }
@@ -170,14 +174,17 @@ public class damagePlayer : MonoBehaviour
     {
         if(other.gameObject.layer == 11)
         {
-            recieveDamage();
-            if (this.transform.position.x < other.transform.position.x)
+            if (isMortal)
             {
-                rb.velocity = new Vector2(-6, 6);
-            }
-            else if (this.transform.position.x > other.transform.position.x)
-            {
-                rb.velocity = new Vector2(6, 6);
+                recieveDamage();
+                if (this.transform.position.x < other.transform.position.x)
+                {
+                    rb.velocity = new Vector2(-6, 6);
+                }
+                else if (this.transform.position.x > other.transform.position.x)
+                {
+                    rb.velocity = new Vector2(6, 6);
+                }
             }
         }
     }

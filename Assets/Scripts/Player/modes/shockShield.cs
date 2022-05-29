@@ -101,68 +101,21 @@ public class shockShield : MonoBehaviour
     void Update()
     {
         FindObjectOfType<damagePlayer>().shieldOn = shieldOn;
-        /*
-        if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == false)
-        {
-            // FindObjectOfType<damagePlayer>().shieldOn = false;
-            shieldOn = true;
-            this.GetComponent<dashMove>().enabled = false;
-            FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed / 2;
-        } else if (Input.GetKeyDown(KeyCode.Mouse1) && shieldOn == true)
-        {
-            // FindObjectOfType<damagePlayer>().isMortal = true;
-            shieldOn = false;
-            this.GetComponent<dashMove>().enabled = true;
-            FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed;
-        }*/
 
         if(FindObjectOfType<energyController>().energy > 0 && shieldOn == true)
         {
             cc.enabled = true;
-            sr.enabled = true;
+            //sr.enabled = true;
         } else
         {
             cc.enabled = false;
-            sr.enabled = false;
+            //sr.enabled = false;
             shieldOn = false;
             FindObjectOfType<character>().speed = FindObjectOfType<modeSelector>().characterSpeed;
             // FindObjectOfType<damagePlayer>().isMortal = true;
         }
 
-        /*
-        // Checks for nearby enemies
-        Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), circleDistance, enemyLayer);
-        if (enemyColliders.Length > 0)
-        {
-            enemyClose = true;
-            enemy01 = enemyColliders[0].transform;
-        }
-        else
-        {
-            enemyClose = false;
-        }
-
-        // hits nearby enemies
-        if (Input.GetKeyDown(KeyCode.Mouse0) && FindObjectOfType<energyController>().energy >= 3)
-        {
-            FindObjectOfType<energyController>().reduceEnergy(3);
-            foreach (Collider2D fiend in enemyColliders)
-            {
-                if (fiend.GetComponent<EnemyDamageTaken>() != null)
-                {
-                    fiend.GetComponent<EnemyDamageTaken>().recieveDamage(2);
-                    if (this.transform.position.x < fiend.transform.position.x)
-                    {
-                        fiend.GetComponent<EnemyDamageTaken>().hDir = 1;
-                    }
-                    else if (this.transform.position.x > fiend.transform.position.x)
-                    {
-                        fiend.GetComponent<EnemyDamageTaken>().hDir = -1;
-                    }
-                }
-            }
-        }
-        */
+        shieldCircle.GetComponent<Animator>().SetBool("isOn", shieldOn);
     }
     private void OnDrawGizmos()
     {

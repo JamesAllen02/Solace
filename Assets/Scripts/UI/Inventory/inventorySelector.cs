@@ -13,6 +13,9 @@ public class inventorySelector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI loreText;
     [SerializeField] private TextMeshProUGUI nameText;
 
+
+    public GameObject[] loreImages;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,14 @@ public class inventorySelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         loreText.text = currentDescription;
         nameText.text = currentItem;
         // print(selected);
+
+        for (int i = 0; i < loreImages.Length; i++)
+        {
+            loreImages[i].SetActive(!FindObjectOfType<checkSaver>().loreFound[i]);
+        }
     }
 }

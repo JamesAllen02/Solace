@@ -167,7 +167,8 @@ public class modeSelector : MonoBehaviour
         {
             // print("Shield mode");
             ab3.enabled = true;
-            shieldCircle.SetActive(true);
+            shieldCircle.GetComponent<Animator>().SetBool("isOn", true);
+            shieldCircle.GetComponent<CircleCollider2D>().enabled = true;
             dP.isMortal = true;
             playerLight.SetActive(true);
         }
@@ -201,8 +202,9 @@ public class modeSelector : MonoBehaviour
         dP.isMortal = true;
         ab3.shieldOn = false;
         FindObjectOfType<damagePlayer>().shieldOn = false;
-
-        shieldCircle.SetActive(false);
+        
+        shieldCircle.GetComponent<Animator>().SetBool("isOn", false);
+        shieldCircle.GetComponent<CircleCollider2D>().enabled = false;
         flyingOrb.SetActive(false);
         floatDistance.SetActive(false);
         shieldBox.SetActive(false);

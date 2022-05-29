@@ -31,7 +31,7 @@ public class EndLevelIncrease : MonoBehaviour
         yield return new WaitForSeconds(1f);
         FindObjectOfType<character>().gameObject.transform.position = new Vector3(0, 0, 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        FindObjectOfType<ModeUI>().currentAbilities++;
+        FindObjectOfType<ModeUI>().currentAbilities = SceneManager.GetActiveScene().buildIndex;
 
     }
 

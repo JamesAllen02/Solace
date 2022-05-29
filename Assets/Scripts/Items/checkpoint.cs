@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class checkpoint : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class checkpoint : MonoBehaviour
             FindObjectOfType<damagePlayer>().hp = FindObjectOfType<damagePlayer>().maxHp;
             FindObjectOfType<energyController>().energy = FindObjectOfType<energyController>().maxEnergy;
             FindObjectOfType<character>().transform.GetChild(0).GetComponent<Animator>().SetBool("sitting", true);
+            FindObjectOfType<checkSaver>().lastCheckPoint = FindObjectOfType<character>().transform.position;
+            FindObjectOfType<checkSaver>().lastCheckScene = SceneManager.GetActiveScene().buildIndex;
         }
         if (!FindObjectOfType<DialogueManager>().isUp)
         {

@@ -11,6 +11,9 @@ public class LiftLever : MonoBehaviour
 
     private bool canHit = false;
 
+    [SerializeField] private AudioSource woodHit;
+    [SerializeField] private AudioSource activateLever;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +38,15 @@ public class LiftLever : MonoBehaviour
 
     public void trigger()
     {
+        woodHit.Play();
         liftObject.moveUp = false;
         liftObject.canMove = true;
         liftObject.isMoving = true;
+
+        if (canHit)
+        {
+            activateLever.Play();
+        }
+
     }
 }
